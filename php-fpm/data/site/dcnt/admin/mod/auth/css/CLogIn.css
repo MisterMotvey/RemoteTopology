@@ -1,0 +1,100 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+body {
+	padding-top: 0px;
+	background-color:#ddd;
+}
+body > main {
+	margin:0 auto;
+	width:100%;
+	max-width:450px;
+	min-height:0;
+	padding-top:0;
+	border-width:0;
+	background-color:transparent;
+}
+@media (min-width:640px) {
+	body > main {
+		padding-top:100px;
+	}
+}
+.panel {
+	margin-bottom:5px;
+	border-radius:0;
+	border-width:0;
+}
+@media (min-width:640px) {
+	.panel {
+		border-radius:4px;
+		border-width:1px;
+	}
+}
+.panel-heading {
+	padding:20px 20px;
+	text-align:center;
+	font-size:120%;
+	border-radius:0;
+	border-width:0;
+}
+.panel-heading .title {
+	font-size:120%;
+	font-weight:bold;
+}
+.panel-heading .version {
+	font-size:80%;
+	font-weight:bold;
+}
+.panel-body {
+	padding-top:30px;
+	background-color:#f8f8f8;
+}
+.left-inner-addon {
+	position: relative;
+}
+.left-inner-addon input {
+	padding-left: 36px;    
+}
+.left-inner-addon .glyphicon {
+	position: absolute;
+	top:0.2em;
+	padding: 14px 14px;
+	color:#337ab7;
+	pointer-events: none;
+}
+.left-inner-addon input {
+	color:#337ab7;
+	box-shadow: inset 3px 3px 3px 0 #aaa;
+}
+.panel-footer {
+	padding-top:25px;
+	text-align:center;
+	font-size:120%;
+	background-color:#eee;
+}
+.site-link {
+	font-style:italic;
+	font-size:11px;
+}
+.site-link,
+.site-link:visited {
+	color:#aaa;
+}
+.site-link:hover {
+	color:#fff;
+	text-decoration:none;
+}

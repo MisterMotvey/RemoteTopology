@@ -1,0 +1,52 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.ctar-bcrumb {
+	overflow:hidden;
+	margin-bottom:0;
+	position:relative;
+	padding:8px 15px;
+	height:38px;
+	background-color:#f5f5f5;
+}
+@media (min-width:768px) {
+	.ctar-bcrumb {
+		border-radius:0 0 5px 5px;
+	}
+}
+.ctar-bcrumb-top {
+	display:none;
+	border-radius:0;
+}
+.ctar-bcrumb .bcrumb-item {
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	position:relative;
+	top:0;
+	color:#468acf;
+	text-shadow:0 0 1px #888;
+}
+.ctar-bcrumb .bcrumb-arrow {
+	display:inline-block;
+	position:relative;
+	top:-1px;
+	padding:0 10px;
+	font-size:70%;
+	color:#468acf;
+}
+

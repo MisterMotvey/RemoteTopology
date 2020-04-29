@@ -1,0 +1,57 @@
+.dcountrec-ctar {
+}
+.dcountrec-ctar .dcountrec-menu {
+	padding:5px 10px;
+	background-color:#fff;
+	margin-bottom:0;
+}
+.dcountrec-ctar .dcountrec-menu li a {
+	padding-top:6px;
+	padding-bottom:6px;
+}
+.dcountrec-ctar .dcountrec-menu .btn-close {
+	position:relative;
+	left:6px;
+	background:none;
+	border-color:transparent;
+	opacity:0.5;
+}
+.dcountrec-ctar .dcountrec-menu .btn-close .glyphicon {
+	position:relative;
+	top:3px;
+}
+.dcountrec-ctar .dcountrec-menu .btn-close:hover {
+	opacity:1;
+	background-color:#eee;
+}
+.dcountrec-ctar .dcountrec-content {
+}
+.dcountrec-ctar .dcountrec-content .dcountrec-tab-content {
+	display:none;
+}
+.dcountrec-ctar .dcountrec-content .ctar-preview {
+	overflow:auto;
+
+	/* checkerboard */
+	background-color:white;
+	background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee),
+		linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+	background-size:16px 16px;
+	background-position:0 0, 8px 8px;
+}
+.dcountrec-ctar .dcountrec-content .ctar-preview-disabled,
+.dcountrec-ctar .dcountrec-content .ctar-preview-jsblocked {
+	display:none;
+	padding:10px;
+	text-align:center;
+	font-size:100%;
+	color:red;
+}
+/*-- notes --*/
+.note-cnt-ctar {
+	margin-right:10px;
+	text-align:right;
+	color:#888;
+	font-size:90%;
+}
+

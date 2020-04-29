@@ -1,0 +1,59 @@
+version: '3.0'
+services:
+# TODO: Nginx
+  web:
+    image: nginx:latest
+    container_name: RTnginx
+    ports:
+      - ${SITE_PORT}:80
+    restart: always
+    volumes:
+      - ./webnginx/conf.d:/etc/nginx/conf.d/
+      - ./php-fpm/data/site:/var/www/php
+      # For debug NGINX uncomment this and check webnginx/log folder 
+      # - ./webnginx/log:/var/log/nginx
+# TODO: PHP
+  php:
+    build: ./php-fpm
+    container_name: RTphp
+    restart: always
+    volumes:
+      - ./php-fpm/data:/var/www/php
+# TODO: WebSSH
+  webssh:
+    build: ./webssh2
+    container_name: RTwebssh2
+    restart: always
+    ports:
+      - 2222:2222
+# TODO: Database MYSQL
+  mysql:
+    image: mysql:latest
+    container_name: RTmysql
+    environment:
+      MYSQL_USER: ${MYSQL_ROUSER_U}
+      MYSQL_PASSWORD: ${MYSQL_ROUSER_P}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_P}
+      MYSQL_DATABASE: usersinfo
+    restart: always
+    volumes: 
+      - ./db:/var/lib/mysql
+# TODO: phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: RTphpmyadmin
+    # links:
+    #   - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - ${PMA_PORT}:80
+# TODO: Proxy
+  # proxy:
+  #   build: ./proxy
+  #   networks:
+  #     - frontend
+  #     - backend

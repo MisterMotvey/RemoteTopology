@@ -1,0 +1,83 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+/*-- general --*/
+form {
+	margin:0;
+	padding:0;
+}
+label.pointer {
+	cursor:pointer;
+}
+/*-- always put scroll bar on side --*/
+html {
+	overflow-y:scroll;
+}
+/*-- stop scrollbar overlay in IE10+ --*/
+body {
+	-ms-overflow-style:scrollbar;
+}
+/*-- bootstrap fix : menu color --*/
+.navbar-brand:link,
+.navbar-brand:visited,
+.navbar-nav>li a:link,
+.navbar-nav>li a:visited {
+	color:#ddd;
+}
+/*-- bootstrap fix : xxs --*/
+@media (max-width:480px) {
+	.hidden-xxs {
+		display:none;
+	}
+}
+/*-- body --*/
+body {
+	font-size:16px;
+	padding-top:50px;
+}
+/*-- body > header --*/
+body > header {
+	margin:0;
+	padding:0;
+}
+body > header > nav {
+}
+@media (min-width:640px) {
+	body > header > .navbar {
+		-moz-box-shadow:    0px 0px 10px 0px #000;
+		-webkit-box-shadow: 0px 0px 10px 0px #000;
+		box-shadow:         0px 0px 10px 0px #000;
+	}
+}
+/* duan */
+.duan-blink {
+	animation-name:kf-duan-blink;
+	animation-duration:0.3s;
+	animation-timing-function:ease;
+	animation-iteration-count:2;
+}
+@keyframes kf-duan-blink {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0.2;
+	}
+	100% {
+		opacity:1;
+	}
+}
+

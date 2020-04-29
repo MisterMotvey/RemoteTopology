@@ -1,0 +1,55 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+.tipk-ctar {
+	position:relative;
+	padding:0;
+	text-align:center;
+	line-height:0px;
+	border:0px solid red;
+}
+/* hour & minute */
+.tipk-ctar>div {
+	display:inline-block;
+	width:110px;
+}
+.tipk-ctar>span {
+	position:relative;
+	top:-1.0em;
+	vertical-align:bottom;
+	font-weight:bold;
+}
+.tipk-ctar .glyphicon {
+	font-size:80%;
+}
+.tipk-ctar button {
+	padding-left:10px;
+	padding-right:10px;
+}
+.tipk-hms-label {
+	padding-bottom:2px;
+	text-align:center;
+	color:#333;
+	font-size:11px;
+	line-height:10px;
+	font-weight:bold;
+}
+.tipk-h,
+.tipk-m,
+.tipk-s {
+	text-align:center;
+}
+

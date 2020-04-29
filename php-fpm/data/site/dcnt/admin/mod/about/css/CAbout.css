@@ -1,0 +1,132 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/*-- ctar --*/
+.about {
+	margin:100px auto 0 auto;
+	max-width:600px;
+	text-align:center;
+	border:0px solid red;
+}
+/*-- inner --*/
+.about-inner {
+	margin:0;
+	padding:0;
+	opacity:0;
+}
+.about-inner-show {
+	animation-delay:0.5s;
+	animation-duration:0.5s;
+	animation-name:kf-about-inner-show;
+	animation-timing-function:linear;
+	animation-iteration-count:1;
+	animation-fill-mode: forwards;
+}
+@keyframes kf-about-inner-show {
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+/*-- name --*/
+.about-name {
+	position:relative;
+	top:0;
+	margin-bottom:0;
+	font-size:40px;
+	font-weight:bold;
+	color:#aaa;
+}
+/*-- version --*/
+.about-version {
+	position:relative;
+	top:0;
+	margin-bottom:10px;
+	font-size:20px;
+	font-weight:bold;
+	color:#888;
+}
+/*-- link --*/
+.about-link  {
+	position:relative;
+	top:0;
+	font-size:11px;
+}
+.about-link a,
+.about-link a:hover,
+.about-link a:active,
+.about-link a:visited,
+.about-link a:focus {
+	color:#444;
+	letter-spacing:4px;
+	text-decoration:none;
+}
+/*-- bar --*/
+.about-bar-top,
+.about-bar-bottom {
+	position:relative;
+	height:20px;
+	background-image:
+		linear-gradient(90deg,
+			rgba(255, 255, 255, 1) 0%,
+			rgba(255, 255, 255, 0.5) 50%,
+			rgba(255, 255, 255, 1) 100%
+		);
+	background-color:#888;
+}
+.about-bar-top {
+	margin-bottom:10px;
+}
+.about-bar-top-down {
+	animation-duration:0.5s;
+	animation-name:kf-about-bar-top-down;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-about-bar-top-down {
+	0% {
+		transform: translateY(-30px);
+		opacity:0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity:1;
+	}
+}
+.about-bar-bottom {
+	margin-top:20px;
+}
+.about-bar-bottom-up {
+	animation-duration:0.5s;
+	animation-name:kf-about-bar-bottom-up;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-about-bar-bottom-up {
+	0% {
+		transform: translateY(+30px);
+		opacity:0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity:1;
+	}
+}
+
+

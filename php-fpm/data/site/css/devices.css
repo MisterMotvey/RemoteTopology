@@ -1,0 +1,147 @@
+
+/* TODO: Devices CSS*/
+.device {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+.host {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+/* 
+  TODO: CSS Linux
+*/
+
+.L-SRV {
+  margin-top: 280px;
+  margin-left: 20px;
+}
+.L-FW {
+  margin-top: 280px;
+  margin-left: 300px;
+}
+.L-RTR-A {
+  margin-top: 500px;
+  margin-left: 135px;
+}
+.L-RTR-B {
+  margin-top: 500px;
+  margin-left: 405px;
+}
+.L-CLI-A {
+  margin-top: 720px;
+  margin-left: 130px;
+}
+.L-CLI-B {
+  margin-top: 720px;
+  margin-left: 405px;
+}
+.OUT-CLI {
+  margin-top: 90px;
+  margin-left: 790px;
+}
+.R-FW {
+  margin-top: 280px;
+  margin-left: 1010px;
+}
+.R-SRV {
+  margin-top: 280px;
+  margin-left: 1270px;
+}
+.R-RTR {
+  margin-top: 480px;
+  margin-left: 1015px;
+}
+.R-CLI {
+  margin-top: 690px;
+  margin-left: 1015px;
+}
+
+/* 
+  TODO: CSS Windows
+*/
+
+.SRV1-Windows {
+  margin-top: 170px;
+  margin-left: 70px;
+}
+.DC1 {
+  margin-top: 170px;
+  margin-left: 330px;
+}
+.DCA {
+  margin-top: 350px;
+  margin-left: 430px;
+}
+.CLI1 {
+  margin-top: 350px;
+  margin-left: 70px;
+}
+.R1 {
+  margin-top: 270px;
+  margin-left: 900px;
+}
+.R2 {
+  margin-top: 670px;
+  margin-left: 900px;
+}
+.DC2 {
+  margin-top: 580px;
+  margin-left: 330px;
+}
+.SRV2 {
+  margin-top: 560px;
+  margin-left: 70px;
+}
+.CLI2 {
+  margin-top: 740px;
+  margin-left: 70px;
+}
+
+/* 
+  TODO: CSS Cisco
+*/
+
+.BR1 {
+  margin-top: 460px;
+  margin-left: 70px;
+}
+.HQ1 {
+  margin-top: 460px;
+  margin-left: 725px;
+}
+.FW1 {
+  margin-top: 460px;
+  margin-left: 520px;
+}
+.SW1 {
+  margin-top: 460px;
+  margin-left: 970px;
+}
+.SW2 {
+  margin-top: 590px;
+  margin-left: 1205px;
+}
+.SW3 {
+  margin-top: 345px;
+  margin-left: 1205px;
+}
+.SRV1-Cisco {
+  margin-top: 110px;
+  margin-left: 1205px;
+} 
+.PC1 {
+  margin-top: 780px;
+  margin-left: 1205px;
+}
+.PC2 {
+  margin-top: 700px;
+  margin-left: 60px;
+}

@@ -1,0 +1,64 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+.scrollbtn-cont {
+	display:none;
+	position:fixed;
+	bottom:15px;
+	right:5px;
+	width:40px;
+	background-color:black;
+	border-radius:5px;
+	z-index:1000;
+	opacity:0.2;
+	/*ie7*/
+	*zoom:1;
+	*filter: alpha(opacity=20);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+}
+.scrollbtn-cont:hover {
+	opacity:0.4;
+}
+@media all and (max-width: 700px) {
+	.scrollbtn-cont {
+		display:none;
+	}
+}
+.scrollbtn-btn {
+	width:40px;
+	color:white;
+	font-size:30px;
+	line-height:32px;
+	text-align:center;
+	cursor:pointer;
+	/* ie7 */
+	*padding-top:10px;
+}
+.scrollbtn-btn.scrollbtn-gotop {
+	padding-top:4px;
+}
+.scrollbtn-btn.scrollbtn-gobottom {
+	padding-bottom:4px;
+}
+.scrollbtn-btn span {
+	vertical-align:top;
+}
+.scrollbtn-btn:hover {
+	color:#0f0;
+}
+.scrollbtn-btn:active {
+	color:#f00;
+}

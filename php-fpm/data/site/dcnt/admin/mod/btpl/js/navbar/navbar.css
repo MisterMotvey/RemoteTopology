@@ -1,0 +1,65 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/*-- navbar light reflection --*/
+.navbar-inverse {
+	background-image:
+		linear-gradient(180deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0.1) 50%,
+			rgba(255, 255, 255, 0) 50.1%,
+			rgba(255, 255, 255, 0) 100%
+		);
+}
+
+/*-- navbar underline --*/
+.navbar-nav>li>a:hover {
+	background-image:
+		linear-gradient(180deg,
+			rgba(52, 122, 186, 0) 0%,
+			rgba(52, 122, 186, 1) 100%
+		);
+}
+
+/*-- navbar dropdown --*/
+li.open ul.dropdown-menu {
+	border-width:0 10px 10px 10px;
+	border-radius:0 0 10px 10px;
+	border-color:rgba(255, 255, 255, 0.8);
+
+	background-color:#337ab7;
+	background-image:
+		linear-gradient(45deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.6) 100%
+		);
+}
+li.open ul.dropdown-menu li a:link,
+li.open ul.dropdown-menu li a:visited,
+li.open ul.dropdown-menu li a:active {
+	color:white;
+}
+li.open ul.dropdown-menu li a:hover {
+	color:white;
+	background-color:#337ab7;
+	background-image:
+		linear-gradient(90deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(155, 255, 155, 0.3) 100%
+		);
+}
+

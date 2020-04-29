@@ -1,0 +1,136 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+.dtpk-ctar {
+	margin-bottom:5px;
+	padding:0;
+	border:0px solid red;
+}
+/* select year & month */
+.dtpk-sel-ym {
+	text-align:center;
+	margin-bottom:10px;
+}
+.dtpk-sel-ym table {
+	width:100%;
+}
+.dtpk-sel-ym button {
+	padding-left:0;
+	padding-right:0;
+	width:20px;
+}
+.dtpk-sel-y-ctar {
+	max-width:180px;
+}
+.dtpk-sel-m-ctar {
+	max-width:160px;
+}
+.dtpk-sel-y-ctar .glyphicon,
+.dtpk-sel-m-ctar .glyphicon {
+	font-size:80%;
+}
+/* display year & month */
+.dtpk-ym {
+	margin-bottom:5px;
+	text-align:center;
+	color:black;
+	font-size:110%;
+	font-weight:bold;
+}
+.dtpk-daytbl {
+	width:100%;
+	border-spacing: 2px;
+	border-collapse: separate;
+	user-select:none;
+}
+/* day table */
+.dtpk-head,
+.dtpk-day {
+	padding:2px 0 0 0;
+}
+/* heading */
+.dtpk-head {
+	text-align:center;
+	color:white;
+	background-color:#337ab7;
+}
+/* day */
+.dtpk-day {
+	text-align:center;
+	color:black;
+	text-shadow:0 0 1px #888;
+}
+/* weekday */
+.dtpk-wday {
+	background-color:#ddf;
+}
+/* weekend */
+.dtpk-wend {
+	background-color:#faa;
+}
+/* in month */
+.dtpk-inday {
+	cursor:pointer;
+}
+.dtpk-inday:hover,
+.dtpk-inday:focus {
+	text-shadow:0 0 1px #444;
+}
+.dtpk-inday:active {
+	color:white;
+}
+/* out of month */
+.dtpk-outday {
+	color:#eee;
+	background-color:#fff;
+}
+/* today */
+.dtpk-today {
+	background-color:#ccc;
+}
+/* selday */
+@keyframes kf-dtpk-selday-blink {
+	0% {
+		color:white;
+		background-color:#080;
+	}
+	80% {
+		color:white;
+		background-color:#080;
+	}
+	85% {
+		color:#080;
+		background-color:white;
+	}
+	99% {
+		color:#080;
+		background-color:white;
+	}
+	100% {
+		color:white;
+		background-color:#080;
+	}
+}
+.dtpk-selday {
+	color:white;
+	background-color:#040;
+
+	animation-duration:1.0s;
+	animation-name:kf-dtpk-selday-blink;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+}
+

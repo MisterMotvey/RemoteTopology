@@ -1,0 +1,68 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.page-navi-box {
+	display:inline-block;
+}
+.page-navi-cell {
+	display:inline-block;
+	vertical-align:top;
+	text-align:center;
+	width:36px;
+	height:36px;
+	line-height:34px;
+	border:1px solid #ccc;
+	border-width:1px 0;
+}
+.page-navi-cell-active {
+	color:#337ab7;
+	font-weight:bold;
+	cursor:pointer;
+}
+.page-navi-cell-inactive {
+	color:#ccc;
+	font-weight:normal;
+	cursor:default;
+}
+.page-navi-cell-active:hover,
+.page-navi-cell-active:focus {
+	background-color:#eee;
+}
+.page-navi-box .page-navi-cell:first-child {
+	border-radius:4px 0 0 4px;
+}
+.page-navi-box .page-navi-cell:last-child {
+	border-radius:0 4px 4px 0;
+}
+.page-navi-inp {
+	width:115px;
+}
+.page-navi-inp .page-navi-inp-pageno {
+	border-width:0 1px;
+	border-radius:0;
+}
+.page-navi-btn-first,
+.page-navi-btn-last {
+	border-width:1px;
+}
+.page-navi-btn-prev {
+}
+.page-navi-btn-next {
+}
+.page-navi-btn-last {
+}
+

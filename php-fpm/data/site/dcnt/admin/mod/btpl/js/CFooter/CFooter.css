@@ -1,0 +1,79 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/*--[BEGIN] sticky footer --*/
+html {
+	position: relative;
+	min-height: 100%;
+	*min-height:auto;
+}
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 50px;
+	*margin-bottom:0;
+}
+body > footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 50px;
+
+	*position:relative;
+	*bottom:auto;
+	height:50px\9;
+	*height:50px;
+}
+/*--[END] sticky footer --*/
+
+body > footer {
+	padding:10px 0 30px 0;
+	font-size:14px;
+	line-height:26px;
+	color:#888;
+	background-color:black;
+}
+@media (min-width:640px) {
+	body > footer {
+		-moz-box-shadow:    0px 0px 15px 0px #000;
+		-webkit-box-shadow: 0px 0px 15px 0px #000;
+		box-shadow:         0px 0px 15px 0px #000;
+	}
+}
+body > footer {
+	text-align:center;
+}
+body > footer .main {
+	position:relative;
+	top:3px;
+	padding:0 20px;
+	text-align:left;
+	font-size:16px;
+}
+body > footer .ctar-sitename {
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	margin:5px 0;
+}
+body > footer .sitename {
+	font-family:"Arial Black","Arial";
+	font-size:14px;
+	font-weight:normal;
+	color:#666;
+}
+

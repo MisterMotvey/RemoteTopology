@@ -1,0 +1,22 @@
+Options -Indexes
+RewriteEngine on
+
+#-- [BEGIN] Ban PATH_INFO
+RewriteRule (.*)\.php\/ / [F]
+#-- [END] Ban PATH_INFO
+
+#-- [BEGIN] Ban access to include files
+RewriteRule (.*)\.inc\.php$ / [F]
+#-- [END] Ban access to include files
+
+#-- [BEGIN] Ban access to class files
+RewriteRule (.*)\.class\.php$ / [F]
+#-- [END] Ban access to include files
+
+#-- [BEGIN] routing path
+#-- [L]=Last, [QSA]=Query String Appended
+RewriteRule ^index\.php$ index.php?_rt=1&_rtp= [L,QSA] 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?_rt=1&_rtp=$1 [L,QSA] 
+#-- [END] routing path

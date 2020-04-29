@@ -1,0 +1,105 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.notice {
+	z-index:10000;
+	position:fixed;
+	bottom:0;
+	left:0;
+	padding:10px 20px;
+	width:100%;
+	background-color:#000;
+	background:
+		linear-gradient(90deg,
+			rgba(0, 0, 0, 0.9),
+			rgba(0, 0, 0, 0.5)
+		);
+	font-size:16px;
+	text-align:left;
+	user-select:none;
+}
+.notice-success {
+	color:white;
+	text-shadow:0 0 1px yellow;
+}
+.notice-error {
+	color:red;
+	text-shadow:0 0 1px yellow;
+}
+.notice-open {
+	animation-name:kf-notice-open;
+	animation-duration:0.5s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+}
+@keyframes kf-notice-open {
+	0% {
+		bottom:-50px;
+		opacity:0;
+	}
+	100% {
+		bottom:0;
+		opacity:1;
+	}
+}
+.notice-close {
+	animation-name:kf-notice-close;
+	animation-duration:1s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+}
+@keyframes kf-notice-close {
+	0% {
+		bottom:0;
+		opacity:1;
+	}
+	100% {
+		bottom:-50px;
+		opacity:0;
+	}
+}
+.notice .notice-pbar {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:2px;
+}
+.notice .notice-pbar .notice-pbar-bar {
+	width:0;
+	height:2px;
+	background-color:red;
+}
+.notice .notice-pbar .notice-pbar-bar-anim {
+	animation-name:kf-notice-pbar-bar;
+	animation-timing-function:linear;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+}
+.notice:hover .notice-pbar .notice-pbar-bar-anim {
+	animation-play-state: paused;
+}
+@keyframes kf-notice-pbar-bar {
+	0% {
+		width:0%;
+	}
+	100% {
+		width:100%;
+	}
+}

@@ -1,0 +1,10 @@
+# Logs
+webnginx/log/
+*.log
+npm-debug.log*
+
+# ENV
+.env
+
+# Database
+db/

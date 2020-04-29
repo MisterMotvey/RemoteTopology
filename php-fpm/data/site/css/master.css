@@ -1,0 +1,264 @@
+/* TODO: Main CSS properties*/
+html {
+  font-family: "Raleway";
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+body {
+  margin: 0 auto;
+  background-color: #534e4e;
+  color: white;
+  height: 100%;
+  width: 100%;
+  min-width: 700px;
+  min-height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+main {
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+  min-width: 600px;
+  height: 500px;
+  font-size: 20px;
+  position: relative;
+}
+footer {
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+input {
+  font-family: "Raleway";
+  border: 1px solid #222;
+  font-size: 20px;
+  background: #cab660;
+  background-image: -webkit-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: -moz-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: -ms-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: linear-gradient(to bottom, #80abc7, #6c879a);
+}
+button {
+  font-family: "Raleway";
+  border: 1px solid #222;
+  font-size: 20px;
+  background: #cab660; /*fallback color for browsers that don't support gradients*/
+  background-image: -webkit-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: -moz-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: -ms-linear-gradient(to bottom, #FFF7C0, #cab660);
+  background-image: linear-gradient(to bottom, #FFF7C0, #cab660);
+}
+ul {
+  margin: 0;
+}
+li {
+  list-style-type: none;
+  text-align: center;
+}
+.center-div {
+  margin-top: auto;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 500px;
+  min-width: 500px;
+  font-size: 50px;
+}
+.form {
+  margin-left: 100px;
+  margin-right: 100px;
+  min-width: 500px;
+}
+.login_error {
+  font-size: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 500px;
+  color: #930202;
+}
+.top-panel {
+  font-size: 20px;
+  position: relative;
+  background-color: #80abc7;
+  border-bottom: 2px solid black;
+  min-width: 1400px;
+  width: 100%;
+  height: 24px;
+}
+.userinfo-top-panel {
+  color: black;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin-left: 10px;
+  width: auto;
+}
+.logout-top-panel {
+  position: absolute;
+  right:0;
+  height: 100%;
+  width:100px;
+  background-color: #ca3131;
+  text-align : center;
+  border-left: 2px solid black;
+}
+.logout-top-panel a {
+  color: black;
+  text-decoration: none;
+} 
+.logout-top-panel a:hover {
+  text-decoration: underline;
+}
+.logout-top-panel a:visited {
+  color: black;
+}
+.main-content {
+  width:100%;
+  position:relative;
+}
+.main-scheme {
+  height: 908px;
+  width: 1408px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.main-scheme-image {
+  height: 900px;
+  width: 1400px;
+  position: absolute;
+  pointer-events: none;
+}
+.timer {
+  position: relative;
+  color: black;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  height: 70px;
+  background-color: #80abc7;
+  font-size: 35px;
+  margin: 5px;
+}
+/* TODO: Additional CSS properties*/
+.top-left {
+  position: absolute;
+}
+.top-left:before, .top-left:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  
+}
+.top-left:before {
+  top: -3px;
+  width: 3px;
+  background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#000), to(transparent));
+  background-image: -webkit-linear-gradient(transparent, #000);
+  background-image: -moz-linear-gradient(transparent, #000);
+  background-image: -o-linear-gradient(transparent, #000);
+}
+.top-left:after {
+  right: -3px;
+  height: 3px;
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(transparent));
+  background-image: -webkit-linear-gradient(left, #000, transparent);
+  background-image: -moz-linear-gradient(left, #000, transparent);
+  background-image: -o-linear-gradient(left, #000, transparent);
+}
+
+/* TODO: Choice-item and attention class */
+.choice-item {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  float: left;
+  text-align: center;
+  opacity: 0.8;
+}
+.choice-item:hover {
+  opacity: 1;
+}
+.choice-item a {
+  display: inline-block;
+  color: #07aa19;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+.choice-item a:after {
+  display: block;
+  content: "";
+  background-color: #07aa19;
+  height: 3px;
+  width: 0%;
+  left: 50%;
+  position: absolute;
+  -webkit-transition: width .1s ease-in-out;
+  -moz--transition: width .1s ease-in-out;
+  transition: width .1s ease-in-out;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.choice-item a:hover:after,
+.choice-item a:focus:after {
+    width: 100%;
+}
+.choice-item img {
+  height: 120px;
+  width: 120px;
+  pointer-events: none;
+}
+.choice-item p {
+  font-size: 24px;
+}
+.attention {
+  box-shadow: inset 2px -2px black;
+  text-shadow: 2px 2px black;
+  position: absolute;
+  background-color: #763b3b;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+
+/* TODO: Choice-item-lock class */
+.choice-item-lock {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  float: left;
+  text-align: center;
+  opacity: 0.5;
+}
+.choice-item-lock a {
+  display: inline-block;
+  color: #07aa19;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+.choice-item-lock img {
+  height: 120px;
+  width: 120px;
+  pointer-events: none;
+}
+.choice-item-lock p {
+  font-size: 24px;
+}

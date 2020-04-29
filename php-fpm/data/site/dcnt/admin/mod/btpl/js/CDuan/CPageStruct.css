@@ -1,0 +1,155 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/*-- ppart (part) --*/
+.ppart {
+}
+.ppart .ppart-heading {
+	position:relative;
+	padding:10px 10px;
+	background-color:#eee;
+	border:0 solid #ccc;
+	border-width:0 0 0 20px;
+}
+.ppart .ppart-title {
+	font-weight:bold;
+	color:#444;
+}
+.ppart .ppart-ctrl {
+	position:absolute;
+	right:0;
+	bottom:5px;
+}
+.ppart .ppart-ctrl button {
+	min-width:80px;
+}
+.ppart .ppart-body {
+	margin:0 auto;
+	max-width:900px;
+}
+.ppart .ppart-footer {
+}
+.ppart,
+.ppart .ppart-heading,
+.ppart .ppart-body,
+.ppart .ppart-footer {
+	margin-bottom:20px;
+}
+
+/*-- psect (section) --*/
+.psect {
+}
+.psect .row {
+	/* bootstrap correction */
+	max-width:100%;
+	margin:0;
+}
+.psect .psect-heading {
+	position:relative;
+	padding:10px 10px;
+	border:0 solid #337ab7;
+	border-width:0 0 1px 20px;
+}
+.psect .psect-heading:first-child {
+	margin-top:10px;
+}
+.psect .psect-title {
+	font-weight:bold;
+	color:#337ab7;
+}
+.psect .psect-ctrl {
+	position:absolute;
+	right:0;
+	bottom:5px;
+}
+.psect .psect-ctrl button {
+	min-width:80px;
+}
+.psect .psect-body {
+	padding:0 10px;
+}
+.psect .psect-footer {
+	position:relative;
+	padding:10px 10px;
+	font-weight:bold;
+	color:#337ab7;
+	border:0 solid #337ab7;
+	border-width:0 0 1px 0;
+	min-height:43px;
+}
+/*-- psect-toolbar --*/
+.psect .psect-toolbar {
+	position:relative;
+	padding-left:20px;
+	border:0 solid #8dbae0;
+	background-color:xred;
+}
+.psect .psect-toolbar .btn {
+	border-radius:10px;
+}
+.psect .psect-toolbar-top {
+	padding-top:20px;
+	border-width:0 0 2px 0;
+}
+.psect .psect-toolbar-bottom {
+	padding-bottom:20px;
+	border-width:2px 0 0 0;
+}
+.psect .psect-toolbar-top .btn {
+	border-bottom-width:0;
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+}
+.psect .psect-toolbar-bottom .btn {
+	border-top-width:0;
+	border-top-left-radius:0;
+	border-top-right-radius:0;
+}
+.psect .psect-toolbar .btn {
+	min-width:80px;
+}
+/*-- psect-* --*/
+.psect,
+.psect .psect-toolbar,
+.psect .psect-heading,
+.psect .psect-body,
+.psect .psect-footer {
+	margin-bottom:20px;
+}
+/*-- psubs (subsection) --*/
+.psubs {
+}
+.psubs .psubs-heading {
+	position:relative;
+	padding:7px 10px 3px 10px;
+	border:0 solid #eee;
+	border-width:0 0 1px 10px;
+}
+.psubs .psubs-title {
+}
+.psubs .psubs-body {
+}
+.psubs .psubs-footer {
+}
+/*-- psubs-* --*/
+.psubs,
+.psubs .psubs-heading,
+.psubs .psubs-body,
+.psubs .psubs-footer {
+	margin-bottom:20px;
+}
+

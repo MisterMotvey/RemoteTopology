@@ -1,0 +1,72 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.inpcb {
+	display:none;
+}
+.inpcb-ctar {
+	position:relative;
+	overflow:hidden;
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	top:-2px;
+	margin:0;
+	padding:0;
+	width:24px;
+	height:24px;
+	border-radius:5px;
+	vertical-align:middle;
+	text-align:center;
+	cursor:pointer;
+	background-color:#d0dfee;
+}
+.inpcb-ctar:focus {
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.inpcb-inner {
+	margin:3px;
+	padding:0;
+	width:18px;
+	height:18px;
+	font-size:13px;
+	line-height:20px;
+	background-color:#fff;
+	border-radius:2px;
+}
+.inpcb-ctar-on,
+.inpcb-inner-on {
+	background: #88b2dd;
+	background: linear-gradient(0deg, #337ab7, #88b2dd);
+}
+.inpcb-mark {
+	position:relative;
+	top:-0.03em;
+
+	width:100%;
+	height:100%;
+	color:white;
+	visibility:hidden;
+
+	pointer-events:none;/* for IE11 */
+}
+.inpcb-mark-on {
+	visibility:visible;
+}
+

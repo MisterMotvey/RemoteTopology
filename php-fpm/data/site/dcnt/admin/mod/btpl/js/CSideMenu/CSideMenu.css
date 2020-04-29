@@ -1,0 +1,105 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// AjaxCountDown v1.02
+// Copyright (c) phpkobo.com ( http://www.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : DCAET-102
+// URL : http://www.phpkobo.com/ajax-countdown
+//
+// This software is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; version 2 of the
+// License.
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/*-- main-content --*/
+.main-content {
+	padding:0;
+	min-height:100px;
+}
+/*-- sidemenu --*/
+.sidemenu {
+	padding:0;
+}
+.sidemenu-inner {
+	padding:15px 10px 0 10px;
+
+	border-color:transparent;
+	border-style:solid;
+	border-width:0 1px 1px 0;
+	border-radius:0 0 10px 0;
+}
+/*-- sidemenu:level1 --*/
+.sidemenu-lvl1-container {
+	margin-bottom:15px;
+}
+.sidemenu-lvl1 {
+	padding:4px 4px 4px 10px;
+	font-weight:bold;
+	text-align:left;
+	color:#468acf;
+	background-color:white;
+	border-style:solid;
+	border-width:0 0 0 5px;
+	border-color:transparent;
+	cursor:pointer;
+}
+.sidemenu-lvl1-a {
+}
+.sidemenu-lvl1-a:hover {
+	border-color:#eee;
+}
+.sidemenu-lvl1-container:hover .glyphicon {
+	animation-name:kf-sidemenu-lvl1-icon;
+	animation-duration:1s;
+	animation-timing-function:linear;
+	animation-iteration-count:1;
+}
+@keyframes kf-sidemenu-lvl1-icon {
+	0% {
+		transform: rotateY(0deg);
+		color:#8c8;
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+/*-- sidemenu:level2 --*/
+.sidemenu-lvl2 {
+	display:none;
+	padding:4px 4px 4px 15px;
+	font-weight:normal;
+	font-size:90%;
+	text-align:left;
+	color:#468acf;
+	background-color:white;
+	border-style:solid;
+	border-width:0 0 0 5px;
+	border-color:transparent;
+}
+.sidemenu-lvl2.divider {
+	padding:0;
+	margin:0px 4px 0 15px;
+	border-style:solid;
+	border-width:0 0 1px 0;
+	border-color:#eee;
+}
+.sidemenu-lvl2-a {
+	cursor:pointer;
+}
+.sidemenu-lvl2-a:hover {
+	border-color:#ddd;
+}
+/*-- sidemenu:level 1&2 --*/
+.sidemenu-lvl1-sel,
+.sidemenu-lvl2-sel {
+	border-color:#468acf;
+	background-color:#f8f8f8;
+	border-radius:0 4px 4px 0;
+	
+}
+/*-- end --*/
+

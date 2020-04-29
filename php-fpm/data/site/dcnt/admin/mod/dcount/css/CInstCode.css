@@ -1,0 +1,28 @@
+.code-box {
+	font-size:100%;
+}
+.code-body {
+	color:#888;
+}
+.code-hl {
+	font-weight:bold;
+	color:#000;
+	background-color:#ff8;
+}
+.inme-ctar {
+	margin:0 10px;
+}
+.inme-ctrl {
+	text-align:center;
+}
+.inme-ctrl a {
+	margin-bottom:5px;
+}
+.inme-tab-content .panel-footer {
+	font-size:90%;
+}
+.inme-tab-content .panel-footer ul {
+	padding:0;
+	margin-left:15px;
+	margin-bottom:0;
+}
