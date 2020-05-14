@@ -67,32 +67,61 @@
             case 'ChangeALinkUser':
                 // Change link on module A for user
                 $username   = $_POST['username'];
-                $devicelist = $_SESSION['DEVICE_LIST_A'];
-                for ($devicecount=0; $devicecount < sizeof($devicelist); $devicecount++) { 
-                    $device = $devicelist[$devicecount];
+                $sql    = "SELECT A FROM championships.Devices WHERE `Champ` =
+                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
+                $query  = $conn->query($sql);
+                $DEVICES = $query->fetch(PDO::FETCH_ASSOC);
+                $DEVICES_LIST = preg_split("/,/", $DEVICES['A']);
+
+                foreach ($DEVICES_LIST as $device) {
                     $link   = $_POST[$device];
                     $query  = $conn->query("UPDATE `AModuleLinks` SET `$device`='$link' WHERE `Username`='$username'");
                 }
                 break;
             case 'ChangeBLinkUser':
                 // Change link on module B for user
+                // $username   = $_POST['username'];
+                // $devicelist = $_SESSION['DEVICE_LIST_B'];
+                // for ($devicecount=0; $devicecount < sizeof($devicelist); $devicecount++) { 
+                //     $device = $devicelist[$devicecount];
+                //     $link   = $_POST[$device];
+                //     $query  = $conn->query("UPDATE `BModuleLinks` SET `$device`='$link' WHERE `Username`='$username'");
+                // }
                 $username   = $_POST['username'];
-                $devicelist = $_SESSION['DEVICE_LIST_B'];
-                for ($devicecount=0; $devicecount < sizeof($devicelist); $devicecount++) { 
-                    $device = $devicelist[$devicecount];
+                $sql    = "SELECT B FROM championships.Devices WHERE `Champ` =
+                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
+                $query  = $conn->query($sql);
+                $DEVICES = $query->fetch(PDO::FETCH_ASSOC);
+                $DEVICES_LIST = preg_split("/,/", $DEVICES['B']);
+
+                foreach ($DEVICES_LIST as $device) {
                     $link   = $_POST[$device];
                     $query  = $conn->query("UPDATE `BModuleLinks` SET `$device`='$link' WHERE `Username`='$username'");
                 }
+
                 break;
             case 'ChangeCLinkUser':
                 // Change link on module C for user
+                // $username   = $_POST['username'];
+                // $devicelist = $_SESSION['DEVICE_LIST_C'];
+                // for ($devicecount=0; $devicecount < sizeof($devicelist); $devicecount++) { 
+                //     $device = $devicelist[$devicecount];
+                //     $link   = $_POST[$device];
+                //     $query  = $conn->query("UPDATE `CModuleLinks` SET `$device`='$link' WHERE `Username`='$username'");
+                // }
+
                 $username   = $_POST['username'];
-                $devicelist = $_SESSION['DEVICE_LIST_C'];
-                for ($devicecount=0; $devicecount < sizeof($devicelist); $devicecount++) { 
-                    $device = $devicelist[$devicecount];
+                $sql    = "SELECT C FROM championships.Devices WHERE `Champ` =
+                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
+                $query  = $conn->query($sql);
+                $DEVICES = $query->fetch(PDO::FETCH_ASSOC);
+                $DEVICES_LIST = preg_split("/,/", $DEVICES['C']);
+
+                foreach ($DEVICES_LIST as $device) {
                     $link   = $_POST[$device];
                     $query  = $conn->query("UPDATE `CModuleLinks` SET `$device`='$link' WHERE `Username`='$username'");
                 }
+                
                 break;
             case 'ChangeChampAll':
                 // Change Championship for ALL

@@ -13,7 +13,7 @@
     // High user number in $MAX
     $query = $conn->query("SELECT MAX(Number) FROM credentials"); $result = $query->fetch();
     $MAX = $result[0];
-
+    
     // Select user list in $SELECT_USERS
     // $SELECT_USERS_GET -> tempplate for get info from DB on Module
     // An open tag is declared in the block where it is used.
@@ -41,7 +41,8 @@
     $SELECT_MODULES .= '</select>';
 
     // Select Champ in $SELECT_CHAMP
-    $championships = array('demo2020c1.1');
+    $query = $conn->query("SELECT `Event` FROM championships.champ_list");
+    $championships = $query->fetchAll(PDO::FETCH_COLUMN, 0);
     $SELECT_CHAMP = '<select name="champ" class="admin-select">';
     foreach ($championships as $champ) {
         $SELECT_CHAMP .= '<option value=' . $champ . ' class="admin-select">' . $champ . '</option>';    
@@ -79,6 +80,7 @@
         </div>
     </div>
     <div class="admin-info">
+    
         <!-- TODO: Feature Update ALL TryState -->
         <div class="admin-feature">
             <form method="post" action="/admin/action.php">
@@ -190,6 +192,7 @@
                 <input type="hidden" name="action" value="ChangeChampAll">
                 <input type="submit" value="Apply">    
             </form>
+            <h3 style="color: black; background-color: cadetblue; width: 200px; text-align: center;">DONT TOUCH</h3>
         </div>
         
         <!-- TODO: Feature Update password for username -->
@@ -305,6 +308,13 @@
                     <td>Demo 2020</td> 
                     <td><script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1004"></script></td>
                 </tr>
+                
+                <!-- MejVuz Timer -->
+                <tr>
+                    <td>MejVuz</td> 
+                    <td><script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1006"></script></td>
+                </tr>
+                
             </tbody>
         </table>
 

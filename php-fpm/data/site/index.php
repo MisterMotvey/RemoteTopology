@@ -5,8 +5,6 @@
     Redirect('choice.php');
   }
   // $dotenv = new \Dotenv\Dotenv(__DIR__);
-  // Zina hello uncomment this and go debug two login LOL
-  // echo session_id();
  ?>
 <!DOCTYPE html>
 <html lang="en">

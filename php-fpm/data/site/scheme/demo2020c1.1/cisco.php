@@ -68,9 +68,9 @@
  <head>
    <meta charset="utf-8">
    <link rel="icon" type="image/png" href="/images/favicon.ico">
-   <link rel="stylesheet" type="text/css" href="/css/fonts.css">
-   <link rel="stylesheet" type="text/css" href="/css/master.css">
-   <link rel="stylesheet" type="text/css" href="/css/devices.css">
+   <link rel="stylesheet" type="text/css" href='/css/fonts.css'>
+   <link rel="stylesheet" type="text/css" href='/css/master.css'>
+   <link rel="stylesheet" type="text/css" href='/css/champs/<?php echo $_SESSION['champ']; ?>.css'>
    <script type="text/javascript" src="/scripts/function.js"></script>
    <title>Demo2020</title>
  </head>

@@ -5,11 +5,7 @@
 // $_SESSION['status']    - check login status, true or false
 // $_SESSION['error']     - if login try has failed set this to true
 // $_SESSION['adminpriv'] - admin privileges
-// $_SESSION['champ']     - current championship
-// 
-// For admin feature
-// $_SESSION['DEVICE_LIST_X'] - Array with user device list for get and change
-//  
+// $_SESSION['champ']     - current championship for username
 
 @ob_start();
 session_start();
@@ -26,17 +22,17 @@ function Redirect($url)
 function ConnectToDB()
 {
 	$servername = "mysql:3306";
-    $username   = "readonlyuser";
-    $password   = "123#passwor#d321";
-    $db         = "usersinfo";
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-        // set the PDO error mode to exception
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		return $conn;
-    }
-    catch(PDOException $e) {
-		echo "Connection failed: " . $e->getMessage();
+  $username   = "readonlyuser";
+  $password   = "123#passwor#d321";
+  $db         = "usersinfo";
+  try {
+    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $conn;
+  }
+  catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
 	}
 	
 }
