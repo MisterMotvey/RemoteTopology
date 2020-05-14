@@ -9,8 +9,8 @@
   elseif($_SESSION['adminpriv']) {
     Redirect('admin/admin.php');
   }
-  // ElseIF champ dont demo2020c1.1 -> redirect to admin page
-  elseif($_SESSION['champ'] != 'demo2020c1.1') {
+  // ElseIF champ dont mejvuz -> redirect to admin page
+  elseif($_SESSION['champ'] != 'mejvuz') {
     Redirect('choice.php');
   }
 
@@ -62,50 +62,34 @@
       <img src=" <?php echo $dir_images; ?>/Lscheme.png" alt="Scheme" class="main-scheme-image">
 
       <!-- Left -->
-      <div class="host L-SRV"
-        onclick="callhost('<?php echo $links['L-SRV']; ?>');">
+      <div class="host SRV-L"
+        onclick="callhost('<?php echo $links['SRV-L']; ?>');">
       </div>
 
-      <div class="host L-FW"
-        onclick="callhost('<?php echo $links['L-FW']; ?>');">
+      <div class="host SRV-R"
+        onclick="callhost('<?php echo $links['SRV-R']; ?>');">
       </div>
 
-      <div class="host L-RTR-A"
-        onclick="callhost('<?php echo $links['L-RTR-A']; ?>');">
+      <div class="host STR"
+        onclick="callhost('<?php echo $links['STR']; ?>');">
       </div>
 
-      <div class="host L-RTR-B"
-        onclick="callhost('<?php echo $links['L-RTR-B']; ?>');">
+      <div class="host CORE"
+        onclick="callhost('<?php echo $links['CORE']; ?>');">
       </div>
 
-      <div class="host L-CLI-A"
-        onclick="callhost('<?php echo $links['L-CLI-A']; ?>');">
-      </div>
-
-      <div class="host L-CLI-B"
-        onclick="callhost('<?php echo $links['L-CLI-B']; ?>');">
-      </div>
-
-      <div class="host OUT-CLI"
-        onclick="callhost('<?php echo $links['OUT-CLI']; ?>');">
+      <div class="host FW"
+        onclick="callhost('<?php echo $links['FW']; ?>');">
       </div>
 
       <!-- Right -->
 
-      <div class="host R-FW"
-        onclick="callhost('<?php echo $links['R-FW']; ?>');">
+      <div class="host CLI-ADM"
+        onclick="callhost('<?php echo $links['CLI-ADM']; ?>');">
       </div>
 
-      <div class="host R-SRV"
-        onclick="callhost('<?php echo $links['R-SRV']; ?>');">
-      </div>
-
-      <div class="host R-RTR"
-        onclick="callhost('<?php echo $links['R-RTR']; ?>');">
-      </div>
-
-      <div class="host R-CLI"
-        onclick="callhost('<?php echo $links['R-CLI']; ?>');">
+      <div class="host CLI-OUT"
+        onclick="callhost('<?php echo $links['CLI-OUT']; ?>');">
       </div>
     </div>    
     <div class="timer top-left">

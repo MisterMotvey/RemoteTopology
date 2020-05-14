@@ -9,13 +9,14 @@ if (!$_SESSION['adminpriv']) {
 // INIT
 $q      = $_GET['q'];
 $module = $_GET['m'];
-$conn = ConnectToDB();
-
+$conn   = ConnectToDB();
+$query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$q'");
+$champ = $query->fetch(); $champ = $champ[0];
+$table = 'championships.`' . $champ . $module . '`';
 // Set Device list in format:
 // [0] => 'L-CLI-A'
 // [1] => 'L-CLI-B'
-$sql    = "SELECT $module FROM championships.Devices WHERE `Champ` =
-(SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$q')";
+$sql    = "SELECT $module FROM championships.Devices WHERE `Champ` = '$champ'";
 $query  = $conn->query($sql);
 $DEVICES = $query->fetch(PDO::FETCH_ASSOC);
 $DEVICES_LIST = preg_split("/,/", $DEVICES[$module]);
@@ -23,16 +24,16 @@ $DEVICES_LIST = preg_split("/,/", $DEVICES[$module]);
 // foreach ($DEVICES as $device) {
 //     echo $device;
 // }
-
 // Create Table with devices
-
 echo "<table class='admin-table-main'>
 <tr>
 <th>Device</th>
 <th>Link</th>
 </tr>";
-$sql    = "SELECT * FROM ".$module."ModuleLinks WHERE `Username` = '".$q."'";
-$query  = $conn->query($sql); $result = $query->fetch(PDO::FETCH_ASSOC);
+// $sql    = "SELECT * FROM ".$module."ModuleLinks WHERE `Username` = '".$q."'";
+$query = $conn->query("SELECT * FROM $table WHERE `Username` = '$q'");
+$result = $query->fetch(PDO::FETCH_ASSOC);
+
 foreach ($DEVICES_LIST as $device) {
     echo "<tr>";
     echo "<td>" . $device . "</td>";

@@ -6,6 +6,7 @@
 // $_SESSION['error']     - if login try has failed set this to true
 // $_SESSION['adminpriv'] - admin privileges
 // $_SESSION['champ']     - current championship for username
+// $_SESSION['timer']     - current timer for champ
 
 @ob_start();
 session_start();

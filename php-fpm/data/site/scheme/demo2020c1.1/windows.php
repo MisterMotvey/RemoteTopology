@@ -9,6 +9,10 @@
   elseif($_SESSION['adminpriv']) {
     Redirect('admin/admin.php');
   }
+  // ElseIF champ dont demo2020c1.1 -> redirect to admin page
+  elseif($_SESSION['champ'] != 'demo2020c1.1') {
+    Redirect('choice.php');
+  }
   
   // TODO: Init stage
   
@@ -19,16 +23,17 @@
   $conn = ConnectToDB();
   
   // Get current module for user
-  $query = $conn->query("SELECT Module FROM `currentstate` WHERE Username='$username'");
-  $module = $query->fetch();
+  $query = $conn->query("SELECT Module FROM `currentstate` WHERE Username='$username'"); $module = $query->fetch();
+  $module = $module[0];
   // If module not Windows, redirect to choice
-  if ($module[0] != 'B') {
+  if ($module != 'B') {
     Redirect('choice.php');
   }
-
+  
   // Get links for username from DB
-  $query = $conn->query("SELECT *  FROM `BModuleLinks` WHERE `Username`='$username' "); 
-  $links = $query->fetch(PDO::FETCH_ASSOC);
+  $table  = $_SESSION['champ'].$module;
+  $query  = $conn->query("SELECT *  FROM championships.`$table` WHERE `Username`='$username' "); 
+  $links  = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +98,7 @@
       </div>
     </div>    
     <div class="timer top-left">
-      <script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1004"></script>
+      <?php echo $_SESSION['timer']; ?>
     </div>
    </div>
    

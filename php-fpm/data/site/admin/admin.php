@@ -152,21 +152,6 @@
                 <input type="submit" value="Apply">
             </form>
         </div>
-
-        <!-- TODO: Feature Update Module for user range-->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Module UPDATE FOR Users range:
-                <br>
-                <select name="username1" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <select name="username2" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <?php echo $SELECT_MODULES; ?>
-                <input type="hidden" name="action" value="ChangeModuleUsers">
-                <input type="submit" value="Apply">
-            </form>
-        </div>
         
         <!-- TODO: Feature Update Module for user range-->
         <div class="admin-feature">
@@ -192,7 +177,33 @@
                 <input type="hidden" name="action" value="ChangeChampAll">
                 <input type="submit" value="Apply">    
             </form>
-            <h3 style="color: black; background-color: cadetblue; width: 200px; text-align: center;">DONT TOUCH</h3>
+        </div>
+
+        <!-- TODO: Feature Update Championship for user -->
+        <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Champ UPDATE FOR User:
+                <br>
+                <?php echo $SELECT_USERS; ?>
+                <?php echo $SELECT_CHAMP; ?>
+                <input type="hidden" name="action" value="ChangeChampUser">
+                <input type="submit" value="Apply">    
+            </form>
+        </div>
+        
+        <!-- TODO: Feature Update Championship for user range -->
+        <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Champ UPDATE FOR Users range:
+                <br>
+                <select name="username1" class="admin-select">
+                <?php echo $SELECT_USERS_GET; ?>
+                <select name="username2" class="admin-select">
+                <?php echo $SELECT_USERS_GET; ?>
+                <?php echo $SELECT_CHAMP; ?>
+                <input type="hidden" name="action" value="ChangeChampUsers">
+                <input type="submit" value="Apply">    
+            </form>
         </div>
         
         <!-- TODO: Feature Update password for username -->
@@ -206,6 +217,19 @@
                 <input type="submit" value="Apply">    
             </form>
         </div>
+
+        <!-- TODO: Feature Update timer for champ -->
+        <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Timer UPDATE FOR Champ (just copy from timer page):
+                <br>
+                <?php echo $SELECT_CHAMP; ?>
+                <input type="text" name="timer">
+                <input type="hidden" name="action" value="ChangeTimerChamp">
+                <input type="submit" value="Apply">    
+            </form>
+        </div>
+
         <table class="admin-table-main">
             <tr>
                 <th>ID</th>
@@ -217,45 +241,31 @@
                 <th>TryState</th>
             </tr>
         <?php
-
-        // Quantly users ->
-        $query = $conn->query("SELECT MAX(Number) FROM credentials");
-        $result = $query->fetch();
+        $query = $conn->query("SELECT * FROM credentials WHERE `Number`=1");
+        $credentials = $query->fetch();
         for ($userNumber = 1; $userNumber <= $MAX ; $userNumber++) { 
-            // Query Username
-            $query = $conn->query("SELECT `Username` FROM `credentials` WHERE `Number`=$userNumber");
-            $username = $query->fetch();
-            // Query Password
-            $query = $conn->query("SELECT `Password` FROM `credentials` WHERE `Number`=$userNumber");
-            $password = $query->fetch();
-            // Query AdminPriv
-            $query = $conn->query("SELECT `adminpriv` FROM `credentials` WHERE `Number`=$userNumber");
-            $adminpriv = $query->fetch();
-            // Query CurrentModule
-            $query = $conn->query("SELECT `Module` FROM `currentstate` WHERE `Username`='$username[0]'");
-            $module = $query->fetch();
-            // Query Current championship
-            $query = $conn->query("SELECT `Championship` FROM `currentstate` WHERE `Username`='$username[0]'");
-            $champ = $query->fetch();
-            // Query Try State
-            $query = $conn->query("SELECT `State` FROM `currentstate` WHERE `Username`='$username[0]'");
-            $trystate = $query->fetch();
+            // Query credentials info
+            $query = $conn->query("SELECT * FROM credentials WHERE `Number`=$userNumber");
+            $credentials = $query->fetch();
+            // Query currentstate info
+            $query = $conn->query("SELECT * FROM currentstate WHERE `Username`='$credentials[Username]' ");
+            $currentstate = $query->fetch()
         ?>
             <tr>
                 <td><?php echo $userNumber; ?></td>
-                <td><?php echo $username[0]; ?></td>
-                <td><?php echo $password[0]; ?></td>
-                <td><?php echo $adminpriv[0]; ?></td>
-                <td><?php echo $module[0]; ?></td>
-                <td><?php echo $champ[0]; ?></td>
+                <td><?php echo $credentials['Username']; ?></td>
+                <td><?php echo $credentials['Password']; ?></td>
+                <td><?php echo $credentials['adminpriv']; ?></td>
+                <td><?php echo $currentstate['Module']; ?></td>
+                <td><?php echo $currentstate['Championship']; ?></td>
                 <?php
-                    if($trystate[0]) {
+                    if($currentstate['State']) {
                         echo "<td class='admin-tryactive'>";
                     }
                     else {
                         echo "<td class='admin-deactive'>";
                     }
-                    echo $trystate[0].'</td>'; 
+                    echo $currentstate['State'].'</td>'; 
                 ?>
             </tr>
         <?php } ?>
@@ -303,18 +313,16 @@
         <br>
         <table class='admin-table-timer'>
             <tbody>
-                <!-- Demo2020 Timer -->
-                <tr>
-                    <td>Demo 2020</td> 
-                    <td><script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1004"></script></td>
-                </tr>
-                
-                <!-- MejVuz Timer -->
-                <tr>
-                    <td>MejVuz</td> 
-                    <td><script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1006"></script></td>
-                </tr>
-                
+                <?php
+                    $query = $conn->query("SELECT `Event`,`Timer` FROM championships.champ_list");
+                    $TimersChamp = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($TimersChamp as $info) {
+                        echo '<tr>';
+                        echo '<td>' . $info['Event'] . '</td>';
+                        echo '<td>' . $info['Timer'] . '</td>';
+                        echo '</tr>';
+                    }
+                ?>
             </tbody>
         </table>
 

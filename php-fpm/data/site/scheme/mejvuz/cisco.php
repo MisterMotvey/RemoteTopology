@@ -9,8 +9,8 @@
   elseif($_SESSION['adminpriv']) {
     Redirect('admin/admin.php');
   }
-  // ElseIF champ dont demo2020c1.1 -> redirect to admin page
-  elseif($_SESSION['champ'] != 'demo2020c1.1') {
+  // ElseIF champ dont mejvuz -> redirect to admin page
+  elseif($_SESSION['champ'] != 'mejvuz') {
     Redirect('choice.php');
   }
 
@@ -44,7 +44,7 @@
   $digi_address = $links['DIGIAddress'];
 
   foreach ($links as $device => $link) {
-    if ($device == 'PC1' or $device == 'PC2' or $device == 'SRV1') {
+    if ($device == 'WEB' or $device == 'PC1') {
       // Not edit hosts link, DB give us normal links so continue
       continue;
     }
@@ -83,33 +83,39 @@
    <div class="main-content">
     <div class="main-scheme">
       <img src=" <?php echo $dir_images; ?>/Cscheme.png" alt="Scheme" class="main-scheme-image">
-      <div class="device BR1"
-      onclick="call('<?php echo $links['BR1']; ?>');">
+
+      <div class="host WEB"
+      onclick="call('<?php echo $links['WEB']; ?>');">
       </div>
-      <div class="device FW1"
-      onclick="call('<?php echo $links['FW1']; ?>');">
+
+      <div class="device BR1-C"
+      onclick="call('<?php echo $links['BR1-C']; ?>');">
       </div>
-      <div class="device HQ1"
-      onclick="call('<?php echo $links['HQ1']; ?>');">
+
+      <div class="device RTR1"
+      onclick="call('<?php echo $links['RTR1']; ?>');">
       </div>
+
       <div class="device SW1"
       onclick="call('<?php echo $links['SW1']; ?>');">
       </div>
+
       <div class="device SW2"
       onclick="call('<?php echo $links['SW2']; ?>');">
       </div>
+
       <div class="device SW3"
       onclick="call('<?php echo $links['SW3']; ?>');">
       </div>
-      <div class="host SRV1-Cisco"
-      onclick="callhost('<?php echo $links['SRV1']; ?>');">
+
+      <div class="device RTR2"
+      onclick="call('<?php echo $links['SW1']; ?>');">
       </div>
+
       <div class="host PC1"
-      onclick="callhost('<?php echo $links['PC1']; ?>');">
+      onclick="call('<?php echo $links['PC1']; ?>');">
       </div>
-      <div class="host PC2"
-      onclick="callhost('<?php echo $links['PC2']; ?>');">
-      </div>
+
     </div>    
     <div class="timer top-left">
       <?php echo $_SESSION['timer']; ?>
