@@ -12,27 +12,21 @@
     
     // Init
     $username = $_SESSION['username'];
-    
     // Connect to DB
     $conn = ConnectToDB();
-    
+    // Query module, champ and timer information
+    $query  = $conn->query("SELECT * FROM `currentstate` WHERE `Username`='$username'"); $result = $query->fetch(PDO::FETCH_ASSOC);
+    $module = $result['Module'];
+    $champ  = $_SESSION['champ'] = $result['Championship']; 
+
+    $query = $conn->query("SELECT `Timer` FROM championships.champ_list WHERE `Event`='$champ'"); $timer = $query->fetch();
+    $timer = $_SESSION['timer'] = $timer[0];
+
     // If user view this page -> disable Trystate
     $query = $conn->query("UPDATE `currentstate` SET `State` = False WHERE `Username`='$username'");
 
-    // Get current module for user
-    $query = $conn->query("SELECT `Module` FROM `currentstate` WHERE `Username`='$username'");
-    $module = $query->fetch();
-
-    // Get and save championship for user and create DIR path to schemes
-    $query = $conn->query("SELECT `Championship` FROM `currentstate` WHERE `Username`='$username'");
-    $champ = $query->fetch();
-    $_SESSION['champ'] = $champ[0];
-
-    $dir_module = '/scheme/' . $champ[0];
-    $dir_images = '/images/' . $champ[0];
-
-    $dir = '/scheme';
-
+    $dir_module = '/scheme/' . $_SESSION['champ'];
+    $dir_images = '/images/' . $_SESSION['champ'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +53,7 @@
         <div 
           <?php
             // If this module, output choice-item OR lock :)
-            if ($module[0] == 'A') {
+            if ($module == 'A') {
               echo 'class="choice-item">';
               echo '<a href="' . $dir_module . '/linux.php">';
               echo '<img src="/images/moduleA.png" alt="Linux">';
@@ -76,7 +70,7 @@
         <div 
           <?php
             // If this module, output choice-item OR lock :)
-            if ($module[0] == 'B') {
+            if ($module == 'B') {
               echo 'class="choice-item">';
               echo '<a href="' . $dir_module . '/windows.php">';
               echo '<img src="/images/moduleB.png" alt="Windows">';
@@ -93,7 +87,7 @@
         <div
           <?php
           // If this module, output choice-item OR lock :)
-          if ($module[0] == 'C') {
+          if ($module == 'C') {
             echo 'class="choice-item">';
             echo '<a href="' . $dir_module . '/cisco.php">';
             echo '<img src="/images/moduleC.png" alt="Cisco">';
@@ -110,7 +104,12 @@
         <div class='attention'>
           <h1>Attention!</h1>
           <p>All actions on the network are logged. If you try to disconnect from the VPN connection, your attempt will be reset to null.</p>                        
-          <h2>Before disconnect left<br><script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1004"></script></h2>
+          <h2>
+            Before disconnect left<br>
+            <?php 
+              echo $_SESSION['timer'];
+            ?>
+          </h2>
         </div>
     </main>
     <footer>
