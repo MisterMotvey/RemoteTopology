@@ -1,6 +1,6 @@
 <?php
   require_once($_SERVER['DOCUMENT_ROOT'].'/site/session.php');
-  // If you are nog logged -> Home
+  // If you are not logged -> Home
   if(!$_SESSION['status']) {
     $_SESSION['error'] = True;
     Redirect('');
@@ -9,45 +9,40 @@
   elseif($_SESSION['adminpriv']) {
     Redirect('admin/admin.php');
   }
+  // ElseIF champ dont demo2020c1.1 -> redirect to admin page
+  elseif($_SESSION['champ'] != 'demo2020c1.1') {
+    Redirect('choice.php');
+  }
 
   // TODO: Init stage
   
   $username = $_SESSION['username'];
   $password = $_SESSION['password'];
-  $docker_address = 'demo2020.au.team:2222/ssh/host/';
+  $docker_address = $_SERVER['HTTP_HOST'] . ':2222/ssh/host/';
   $dir_images = '/images/' . $_SESSION['champ'];
 
   // Connect to DB
   $conn = ConnectToDB();
 
   // Get current module for user
-  $query = $conn->query("SELECT Module FROM `currentstate` WHERE Username='$username'");
-  $module = $query->fetch();
+  $query = $conn->query("SELECT Module FROM currentstate WHERE Username='$username'");
+  $module = $query->fetch(); $module = $module[0];
   // If module not cisco, redirect to choice
-  if ($module[0] != 'C') {
-    Redirect('choice.php');
-  }
-
-  // Get current module for user
-  $query = $conn->query("SELECT Module FROM `currentstate` WHERE Username='$username'");
-  $module = $query->fetch();
-  // If module not linux, redirect to choice
-  if ($module[0] != 'C') {
+  if ($module != 'C') {
     Redirect('choice.php');
   }
   
-  // Query digi address
-  $query = $conn->query("SELECT `DIGIAddress`  FROM `CModuleLinks` WHERE `Username`='$username' ");  
-  $result = $query->fetch();
-  $digi_address = $result[0];
-
   // Get links for username from DB
-  $query = $conn->query("SELECT *  FROM `CModuleLinks` WHERE `Username`='$username' "); 
+  $table = 'championships.`' . $_SESSION['champ'].$module.'`'; 
+  $query = $conn->query("SELECT * FROM $table WHERE `Username`='$username' "); 
   $links = $query->fetch(PDO::FETCH_ASSOC);
   
   // TODO: Generate personal devices link
   // EXAMPLE
-  // http://demo2020.au.team/ssh/host/10.11.8.4?header=Docker&user=root&pass=toor
+  // http:// $_SERVER['HTTP_HOST'] /ssh/host/10.11.8.4?header=Device&user=root&pass=toor
+  
+  $digi_address = $links['DIGIAddress'];
+
   foreach ($links as $device => $link) {
     if ($device == 'PC1' or $device == 'PC2' or $device == 'SRV1') {
       // Not edit hosts link, DB give us normal links so continue
@@ -68,18 +63,18 @@
  <head>
    <meta charset="utf-8">
    <link rel="icon" type="image/png" href="/images/favicon.ico">
-   <link rel="stylesheet" type="text/css" href="/css/fonts.css">
-   <link rel="stylesheet" type="text/css" href="/css/master.css">
-   <link rel="stylesheet" type="text/css" href="/css/devices.css">
+   <link rel="stylesheet" type="text/css" href='/css/fonts.css'>
+   <link rel="stylesheet" type="text/css" href='/css/master.css'>
+   <link rel="stylesheet" type="text/css" href='/css/champs/<?php echo $_SESSION['champ']; ?>.css'>
    <script type="text/javascript" src="/scripts/function.js"></script>
-   <title>Demo2020</title>
+   <title> <?php echo $_SESSION['champ'] ?> </title>
  </head>
  <body>
    <div class="top-panel">
      <div class="userinfo-top-panel">
-         <?
-         echo 'You logged in as '.$_SESSION['username'];
-          ?>
+        <?php
+          echo 'You logged in as '.$_SESSION['username'];
+        ?>
      </div>
      <div class="logout-top-panel">
         <a href="/choice.php">Back</a>
@@ -117,10 +112,9 @@
       </div>
     </div>    
     <div class="timer top-left">
-      <script type="text/javascript" src="http://demo2020.wsr39.online/dcnt/cn/cn.php?id=1004"></script>
+      <?php echo $_SESSION['timer']; ?>
     </div>
    </div>
-   
   <footer>
       <p>
         Developed by 104auteam
