@@ -8,3 +8,6 @@ npm-debug.log*
 
 # Database
 db/
+
+# Timer
+php-fpm/data/site/dcnt/
