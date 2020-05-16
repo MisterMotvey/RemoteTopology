@@ -7,19 +7,37 @@ if (!$_SESSION['adminpriv']) {
 // If not admin -> to home
 
 // INIT
-$q      = $_GET['q'];
-$module = $_GET['m'];
-$conn   = ConnectToDB();
-$query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$q'");
-$champ = $query->fetch(); $champ = $champ[0];
-$table = 'championships.`' . $champ . $module . '`';
-// Set Device list in format:
-// [0] => 'L-CLI-A'
-// [1] => 'L-CLI-B'
-$sql    = "SELECT $module FROM championships.Devices WHERE `Champ` = '$champ'";
-$query  = $conn->query($sql);
-$DEVICES = $query->fetch(PDO::FETCH_ASSOC);
-$DEVICES_LIST = preg_split("/,/", $DEVICES[$module]);
+$q       = $_GET['q'];
+$module  = $_GET['m'];
+$conn    = ConnectToDB();
+$query   = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$q'");
+$champ   = $query->fetch(); $champ = $champ[0];
+
+// Set Device list in DEVICES_LIST:
+// $DEVICES_LIST[0] => 'L-CLI-A'
+// $DEVICES_LIST[1] => 'L-CLI-B'
+$query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
+$complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
+
+if ($complex_champ == True) {
+    $table          = 'championships.`' . $champ . '`';
+    $sql            = "SELECT Complex FROM championships.Devices WHERE `Champ` = '$champ'";
+    $query          = $conn->query($sql);
+    $DEVICES        = $query->fetch(PDO::FETCH_ASSOC);
+    $DEVICES_LIST   = preg_split("/,/", $DEVICES['Complex']);
+}
+else {
+    $table          = 'championships.`' . $champ . $module . '`';
+    $sql            = "SELECT $module FROM championships.Devices WHERE `Champ` = '$champ'";
+    $query          = $conn->query($sql);
+    $DEVICES        = $query->fetch(PDO::FETCH_ASSOC);
+    $DEVICES_LIST   = preg_split("/,/", $DEVICES[$module]);
+}
+
+
+
+
+
 // For DEBUG
 // foreach ($DEVICES as $device) {
 //     echo $device;
@@ -30,7 +48,6 @@ echo "<table class='admin-table-main'>
 <th>Device</th>
 <th>Link</th>
 </tr>";
-// $sql    = "SELECT * FROM ".$module."ModuleLinks WHERE `Username` = '".$q."'";
 $query = $conn->query("SELECT * FROM $table WHERE `Username` = '$q'");
 $result = $query->fetch(PDO::FETCH_ASSOC);
 

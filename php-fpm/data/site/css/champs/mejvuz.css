@@ -16,120 +16,88 @@
 }
 
 /* 
-  TODO: CSS Linux
+  TODO: CSS Left
 */
 
-.SRV-L {
-  margin-top: 210px;
-  margin-left: 20px;
+.CLI {
+  margin-top: 60px;
+  margin-left: 45px;
 }
-.SRV-R {
-  margin-top: 580px;
-  margin-left: 20px;
-}
-.STR {
-  margin-top: 210px;
-  margin-left: 320px;
-}
-.CORE {
-  margin-top: 380px;
-  margin-left: 320px;
-}
-.FW {
-  margin-top: 380px;
-  margin-left: 720px;
-}
-.CLI-ADM {
-  margin-top: 210px;
-  margin-left: 1060px;
-}
-.CLI-OUT {
-  margin-top: 580px;
-  margin-left: 1060px;
-}
-
-/* 
-  TODO: CSS Windows
-*/
-
-.FS1 {
-  margin-top: 170px;
-  margin-left: 70px;
-}
-.DC1 {
-  margin-top: 170px;
-  margin-left: 330px;
-}
-.RCA {
-  margin-top: 350px;
-  margin-left: 430px;
-}
-.CLI1 {
-  margin-top: 350px;
-  margin-left: 70px;
-}
-.BR1-W {
-  margin-top: 270px;
-  margin-left: 900px;
-}
-.BR2 {
-  margin-top: 670px;
-  margin-left: 900px;
-}
-.DC2 {
-  margin-top: 580px;
-  margin-left: 330px;
-}
-.FS2 {
+.Student {
   margin-top: 560px;
-  margin-left: 70px;
+  margin-left: 45px;
 }
-.CLI2 {
-  margin-top: 740px;
-  margin-left: 70px;
-}
-.CLI3 {
-  margin-top: 740px;
-  margin-left: 240px;
+.DC {
+  margin-top: 430px;
+  margin-left: 45px;
 }
 .RDS {
-  margin-top: 740px;
-  margin-left: 430px;
+  margin-top: 310px;
+  margin-left: 45px;
+}
+.FS {
+  margin-top: 190px;
+  margin-left: 45px;
+}
+.SRV1 {
+  margin-top: 155px;
+  margin-left: 280px;
 }
 
 /* 
-  TODO: CSS Cisco
+  TODO: CSS Middle
 */
 
-.WEB {
-  margin-top: 700px;
-  margin-left: 60px;
+.S1 {
+  margin-top: 190px;
+  margin-left: 510px;
 }
-.BR1-C {
-  margin-top: 460px;
-  margin-left: 70px;
-}
-.RTR1 {
-  margin-top: 460px;
-  margin-left: 550px;
-}
-.RTR2 {
-  margin-top: 800px;
-  margin-left: 1025px;
-}
-.SW1 {
-  margin-top: 570px;
-  margin-left: 1025px;
-}
-.SW2 {
-  margin-top: 340px;
-  margin-left: 1025px;
-}
-.SW3 {    
-  margin-top: 450px;
+.S2 {
+  margin-top: 190px;
   margin-left: 790px;
 }
-.PC1 {
-  margin-top: 550px;
+.S3 {
+  margin-top: 330px;
+  margin-left: 650px;
+}
+.R1 {
+  margin-top: 510px;
+  margin-left: 480px;
+}
+.R2 {
+  margin-top: 510px;
+  margin-left: 810px;
+}
+.ISP1 {
+  margin-top: 710px;
+  margin-left: 590px;
+}
+.ISP2 {
+  margin-top: 710px;
+  margin-left: 715px;
+}
+
+/* 
+  TODO: CSS Right
+*/
+
+.SRV2 {
+  margin-top: 170px;
+  margin-left: 1000px;
+}
+.WEB {
+  margin-top: 50px;
+  margin-left: 1240px;
+}
+.VPN {
+  margin-top: 180px;
   margin-left: 1250px;
+}
+.MON {
+  margin-top: 310px;
+  margin-left: 1250px;
+}
+.Teacher {
+  margin-top: 550px;
+  margin-left: 1240px;
 }

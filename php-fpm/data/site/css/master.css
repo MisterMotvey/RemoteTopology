@@ -30,6 +30,16 @@ main {
   font-size: 20px;
   position: relative;
 }
+.choice-main {
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+  min-width: 600px;
+  height: 500px;
+  font-size: 20px;
+  position: relative;
+}
 footer {
   display: block;
   position: fixed;
