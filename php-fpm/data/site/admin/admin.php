@@ -4,7 +4,6 @@
     if (!$_SESSION['adminpriv']) {
         Redirect('');
     }
-
     // Init
 
     // Connect to DB
