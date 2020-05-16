@@ -7,6 +7,7 @@
 // $_SESSION['adminpriv'] - admin privileges
 // $_SESSION['champ']     - current championship for username
 // $_SESSION['timer']     - current timer for champ
+// $_SESSION['complex']   - True or False complex championship
 
 @ob_start();
 session_start();

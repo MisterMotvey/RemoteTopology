@@ -19,9 +19,10 @@
     $module = $result['Module'];
     $champ  = $_SESSION['champ'] = $result['Championship']; 
 
-    $query = $conn->query("SELECT `Timer` FROM championships.champ_list WHERE `Event`='$champ'"); $timer = $query->fetch();
-    $timer = $_SESSION['timer'] = $timer[0];
-
+    $query    = $conn->query("SELECT `Timer`,`Complex` FROM championships.champ_list WHERE `Event`='$champ'"); $result = $query->fetch(PDO::FETCH_ASSOC);
+    $complex  = $_SESSION['complex']  = $result['Complex'];
+    $timer    = $_SESSION['timer']    = $result['Timer'];
+    
     // If user view this page -> disable Trystate
     $query = $conn->query("UPDATE `currentstate` SET `State` = False WHERE `Username`='$username'");
 
@@ -49,11 +50,11 @@
         <a href="/session_destroy.php">Logout</a>
      </div>
    </div>
-    <main>
+    <div class="choice-main">
         <div 
           <?php
             // If this module, output choice-item OR lock :)
-            if ($module == 'A') {
+            if ($module == 'A' and $complex != True) {
               echo 'class="choice-item">';
               echo '<a href="' . $dir_module . '/linux.php">';
               echo '<img src="/images/moduleA.png" alt="Linux">';
@@ -70,7 +71,7 @@
         <div 
           <?php
             // If this module, output choice-item OR lock :)
-            if ($module == 'B') {
+            if ($module == 'B' and $complex != True) {
               echo 'class="choice-item">';
               echo '<a href="' . $dir_module . '/windows.php">';
               echo '<img src="/images/moduleB.png" alt="Windows">';
@@ -87,7 +88,7 @@
         <div
           <?php
           // If this module, output choice-item OR lock :)
-          if ($module == 'C') {
+          if ($module == 'C' and $complex != True) {
             echo 'class="choice-item">';
             echo '<a href="' . $dir_module . '/cisco.php">';
             echo '<img src="/images/moduleC.png" alt="Cisco">';
@@ -101,6 +102,25 @@
           }
           ?>
         </div>
+
+        <div
+          <?php
+          // If this module, output choice-item OR lock :)
+          if ($complex == True) {
+            echo 'class="choice-item">';
+            echo '<a href="' . $dir_module . '/' . $champ . '.php">';
+            echo '<img src="/images/moduleZ.png" alt="Complex">';
+            echo '</a>';
+            echo '<p>Complex</p>';
+          }
+          else {
+            echo 'class="choice-item-lock">';
+            echo '<img src="/images/moduleZ.png" alt="Complex">';
+            echo '<p>🔒Complex🔒</p>';
+          }
+          ?>
+        </div>
+        
         <div class='attention'>
           <h1>Attention!</h1>
           <p>All actions on the network are logged. If you try to disconnect from the VPN connection, your attempt will be reset to null.</p>                        
@@ -111,7 +131,7 @@
             ?>
           </h2>
         </div>
-    </main>
+    </div>
     <footer>
       <p>
         Developed by 104auteam
