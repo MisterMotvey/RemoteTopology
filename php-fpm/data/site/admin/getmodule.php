@@ -18,7 +18,6 @@ $champ   = $query->fetch(); $champ = $champ[0];
 // $DEVICES_LIST[1] => 'L-CLI-B'
 $query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
 $complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
-
 if ($complex_champ == True) {
     $table          = 'championships.`' . $champ . '`';
     $sql            = "SELECT Complex FROM championships.Devices WHERE `Champ` = '$champ'";
@@ -33,7 +32,6 @@ else {
     $DEVICES        = $query->fetch(PDO::FETCH_ASSOC);
     $DEVICES_LIST   = preg_split("/,/", $DEVICES[$module]);
 }
-
 
 
 

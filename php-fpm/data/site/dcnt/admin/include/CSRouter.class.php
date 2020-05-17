@@ -21,6 +21,7 @@ class CSRouter {
 		$url = "";
 
 		if ( $http ) {
+			$_SERVER["SERVER_NAME"] = 'demo2020.wsr39.online';
 			$url .= "http";
 
 			$b_https = (( isset( $_SERVER["HTTPS"] ) ) && ( $_SERVER["HTTPS"] == "on" ));

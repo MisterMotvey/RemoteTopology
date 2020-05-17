@@ -277,7 +277,8 @@
                 <br>
                 <select name="username" class="admin-select" onchange="GetModuleTable(this.value, 'A')">
                 <?php echo $SELECT_USERS_GET; ?>
-                <input type="hidden" name="action" value="ChangeALinkUser">
+                <input type="hidden" name="action" value="ChangeLinkUser">
+                <input type="hidden" name="module" value="A">
                 <div id="AModule"></div>
             </form>
         </div>
@@ -289,7 +290,8 @@
                 <br>
                 <select name="username" class="admin-select" onchange="GetModuleTable(this.value, 'B')">
                 <?php echo $SELECT_USERS_GET; ?>
-                <input type="hidden" name="action" value="ChangeBLinkUser">
+                <input type="hidden" name="action" value="ChangeLinkUser">
+                <input type="hidden" name="module" value="B">
                 <div id="BModule"></div>
             </form>
         </div>
@@ -301,7 +303,8 @@
                 <br>
                 <select name="username" class="admin-select" onchange="GetModuleTable(this.value, 'C')">
                 <?php echo $SELECT_USERS_GET; ?>
-                <input type="hidden" name="action" value="ChangeCLinkUser">
+                <input type="hidden" name="action" value="ChangeLinkUser">
+                <input type="hidden" name="module" value="C">
                 <div id="CModule"></div>
             </form>
         </div>
