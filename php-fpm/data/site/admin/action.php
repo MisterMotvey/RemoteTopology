@@ -5,7 +5,6 @@
         Redirect('');
     }
     $conn = ConnectToDB();
-    
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'ChangeStateAll':
@@ -64,58 +63,46 @@
                 )
                 ");  
                 break;
-            case 'ChangeALinkUser':
-                // Change link on module A for user
+            case 'ChangeLinkUser':
+                $module     = $_POST['module'];
                 $username   = $_POST['username'];
-                $sql        = "SELECT A FROM championships.Devices WHERE `Champ` =
-                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
-                $query      = $conn->query($sql);
-                $DEVICES    = $query->fetch(PDO::FETCH_ASSOC);
-                $DEVICES_LIST = preg_split("/,/", $DEVICES['A']);
-                // Create table name
-                $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
-                $champ = $query->fetch(); $champ = $champ[0];
-                $table = 'championships.`' . $champ .'A`';
-                
-                foreach ($DEVICES_LIST as $device) {
-                    $link   = $_POST[$device];
-                    $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
-                }
-                break;
-            case 'ChangeBLinkUser':
-                // Change link on module B for user
-                $username   = $_POST['username'];
-                $sql        = "SELECT B FROM championships.Devices WHERE `Champ` =
-                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
-                $query      = $conn->query($sql);
-                $DEVICES    = $query->fetch(PDO::FETCH_ASSOC);
-                $DEVICES_LIST = preg_split("/,/", $DEVICES['B']);
-                // Create table name
-                $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
-                $champ = $query->fetch(); $champ = $champ[0];
-                $table = 'championships.`' . $champ .'B`';
-                
-                foreach ($DEVICES_LIST as $device) {
-                    $link   = $_POST[$device];
-                    $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
-                }
-                break;
-            case 'ChangeCLinkUser':
-                // Change link on module C for user
-                $username   = $_POST['username'];
-                $sql        = "SELECT C FROM championships.Devices WHERE `Champ` =
-                (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
-                $query      = $conn->query($sql);
-                $DEVICES    = $query->fetch(PDO::FETCH_ASSOC);
-                $DEVICES_LIST = preg_split("/,/", $DEVICES['C']);
-                // Create table name
-                $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
-                $champ = $query->fetch(); $champ = $champ[0];
-                $table = 'championships.`' . $champ .'C`';
+                $query   = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
+                $champ   = $query->fetch(); $champ = $champ[0];
+                // Set Device list in DEVICES_LIST:
+                // $DEVICES_LIST[0] => 'L-CLI-A'
+                // $DEVICES_LIST[1] => 'L-CLI-B'
+                $query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
+                $complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
 
-                foreach ($DEVICES_LIST as $device) {
-                    $link   = $_POST[$device];
-                    $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                if ($complex_champ == True) {
+                    $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
+                    $champ = $query->fetch(); $champ = $champ[0];
+                    $table = 'championships.`' . $champ .'`';
+                    $sql            = "SELECT Complex FROM championships.Devices WHERE `Champ` = '$champ'";
+                    $query          = $conn->query($sql);
+                    $DEVICES        = $query->fetch(PDO::FETCH_ASSOC);
+                    $DEVICES_LIST   = preg_split("/,/", $DEVICES['Complex']);
+                    foreach ($DEVICES_LIST as $device) {
+                        $link   = $_POST[$device];
+                        $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                    }
+                }
+                else {
+                    // echo $module;       $query   = $conn->query("SELECT Complex213 FROM championships.champ_list WHERE `Event` = '$champ'");$complex_champ = $query->fetch();
+                    $sql        = "SELECT $module FROM championships.Devices WHERE `Champ` =
+                    (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
+                    $query      = $conn->query($sql);
+                    $DEVICES    = $query->fetch(PDO::FETCH_ASSOC);
+                    $DEVICES_LIST = preg_split("/,/", $DEVICES[$module]);
+                    // Create table name
+                    $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
+                    $champ = $query->fetch(); $champ = $champ[0];
+                    $table = 'championships.`' . $champ . $module . '`';                    
+                    foreach ($DEVICES_LIST as $device) {
+                        $link   = $_POST[$device];
+                        $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                    }
+                    
                 }
                 break;
             case 'ChangeChampAll':
@@ -149,7 +136,7 @@
                 $timer  = $_POST['timer'];
                 $query = $conn->query("UPDATE championships.champ_list SET `Timer`='$timer' WHERE `Event`='$champ'");
                 break;
-            default:
+            default: 
                 break; 
         }
     }
