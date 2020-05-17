@@ -20,4 +20,5 @@ $cfg["app-title-link"] = "dcount";
 //-- show record id (true/false)
 $cfg["show-recid"] = false;
 
+
 ?>

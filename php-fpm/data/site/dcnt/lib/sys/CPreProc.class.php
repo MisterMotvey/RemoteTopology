@@ -26,7 +26,7 @@ class CPreProc {
 			if ( $b_https ) {
 				$url .= "s";
 			}
-			$_SERVER["SERVER_NAME"] = 'demo2020.wsr39.online';	
+
 			$url .= "://" . $_SERVER["SERVER_NAME"];
 
 			if (( $_SERVER["SERVER_PORT"] != "80" ) && !$b_https ) {
