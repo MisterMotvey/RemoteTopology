@@ -156,7 +156,7 @@
         </div>
         
         <div class="host VPN"
-        onclick="callhost('<?php echo $links['SRV2']; ?>');">
+        onclick="callhost('<?php echo $links['VPN']; ?>');">
         </div>
         
         <div class="host MON"

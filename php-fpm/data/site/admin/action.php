@@ -88,6 +88,7 @@
                     }
                 }
                 else {
+                    // For debug lol :))))
                     // echo $module;       $query   = $conn->query("SELECT Complex213 FROM championships.champ_list WHERE `Event` = '$champ'");$complex_champ = $query->fetch();
                     $sql        = "SELECT $module FROM championships.Devices WHERE `Champ` =
                     (SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username')";
