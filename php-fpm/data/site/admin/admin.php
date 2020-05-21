@@ -229,6 +229,45 @@
             </form>
         </div>
 
+        <!-- TODO: Feature Add user -->
+        <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Add USER:
+                <br>
+                Username:
+                <input type="text" name="user">
+                Password (Clean text):
+                <input type="password" name="pass">
+                <?php echo $SELECT_CHAMP; ?>
+                <input type="hidden" name="action" value="AddUser">
+                <input type="submit" value="Apply">    
+            </form>
+        </div>
+        
+        <!-- TODO: Feature Add users with random password -->
+        <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Add number of USERS with RANDOM PASSWORDS (up to 10)
+                <br>
+                Number of Users:
+                <select name="number" class="admin-select">
+                    <option value="1" class="admin-select">1</option>
+                    <option value="2" class="admin-select">2</option>
+                    <option value="3" class="admin-select">3</option>
+                    <option value="4" class="admin-select">4</option>
+                    <option value="5" class="admin-select">5</option>
+                    <option value="6" class="admin-select">6</option>
+                    <option value="7" class="admin-select">7</option>
+                    <option value="8" class="admin-select">8</option>
+                    <option value="9" class="admin-select">9</option>
+                    <option value="10" class="admin-select">10</option>
+                </select>
+                <?php echo $SELECT_CHAMP; ?>
+                <input type="hidden" name="action" value="AddUsersRandomPass">
+                <input type="submit" value="Apply">    
+            </form>
+        </div>
+
         <table class="admin-table-main">
             <tr>
                 <th>ID</th>
@@ -240,8 +279,6 @@
                 <th>TryState</th>
             </tr>
         <?php
-        $query = $conn->query("SELECT * FROM credentials WHERE `Number`=1");
-        $credentials = $query->fetch();
         for ($userNumber = 1; $userNumber <= $MAX ; $userNumber++) { 
             // Query credentials info
             $query = $conn->query("SELECT * FROM credentials WHERE `Number`=$userNumber");
@@ -269,7 +306,10 @@
             </tr>
         <?php } ?>
         </table>
-
+        <a href="/admin/data/users.txt" download>
+            <h3>Download Username and Password in clear text</h3>
+        </a>
+        <hr>
         <!-- TODO: Feature Get A Module Info for username -->
         <div class="admin-feature">
             <form method="post" action="/admin/action.php" >

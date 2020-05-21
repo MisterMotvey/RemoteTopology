@@ -26,7 +26,8 @@ class CPreProc {
 			if ( $b_https ) {
 				$url .= "s";
 			}
-			$_SERVER["SERVER_NAME"] = 'demo2020.wsr39.online';	
+			// $_SERVER["SERVER_NAME"] = 'demo2020.wsr39.online';	
+			$_SERVER["SERVER_NAME"] = $_SERVER['HTTP_HOST'];
 
 			$url .= "://" . $_SERVER["SERVER_NAME"];
 
