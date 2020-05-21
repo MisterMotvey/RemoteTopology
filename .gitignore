@@ -10,7 +10,7 @@ npm-debug.log*
 db/
 
 # Timer
-php-fpm/data/site/dcnt/
+php-fpm/data/site/dcnt/*
 
 # Admin data
-admin/data/
+# admin/data/*
