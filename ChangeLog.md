@@ -1,4 +1,6 @@
 # ChangeLog for RemoteTopology
+## 0.0.3 
+### Added function for delete and add user
 ## 0.0.2 
 ### Added complex championship, and added 'mejvuz' as champ
 ## 0.0.1
