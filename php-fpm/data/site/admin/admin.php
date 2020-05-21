@@ -306,7 +306,7 @@
             </tr>
         <?php } ?>
         </table>
-        <a href="/admin/data/users.txt" download>
+        <a href="/admin/data/9bc65c2abec141778ffaa729489f3e87.txt" download>
             <h3>Download Username and Password in clear text</h3>
         </a>
         <hr>
