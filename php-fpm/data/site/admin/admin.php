@@ -239,13 +239,28 @@
                 Password (Clean text):
                 <input type="password" name="pass">
                 <?php echo $SELECT_CHAMP; ?>
+                AdminPrivilege
+                <input type="checkbox" name="adminpriv" value="1">
+                <?php echo $SELECT_MODULES; ?>
+                <input type="hidden" name="number" value=<?php echo $MAX;?>>
                 <input type="hidden" name="action" value="AddUser">
                 <input type="submit" value="Apply">    
             </form>
         </div>
         
-        <!-- TODO: Feature Add users with random password -->
+        <!-- TODO: Feature Drop USERNAME -->
         <div class="admin-feature">
+            <form method="post" action="/admin/action.php">
+                Drop USER
+                <br>
+                <?php echo $SELECT_USERS; ?>
+                <input type="hidden" name="action" value="DropUser">
+                <input type="submit" value="Apply">    
+            </form>
+        </div>
+
+        <!-- TODO: Feature Add users with random password -->
+        <!-- <div class="admin-feature">
             <form method="post" action="/admin/action.php">
                 Add number of USERS with RANDOM PASSWORDS (up to 10)
                 <br>
@@ -262,11 +277,11 @@
                     <option value="9" class="admin-select">9</option>
                     <option value="10" class="admin-select">10</option>
                 </select>
-                <?php echo $SELECT_CHAMP; ?>
+                <?php //echo $SELECT_CHAMP; ?>
                 <input type="hidden" name="action" value="AddUsersRandomPass">
                 <input type="submit" value="Apply">    
             </form>
-        </div>
+        </div> -->
 
         <table class="admin-table-main">
             <tr>
