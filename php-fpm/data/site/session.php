@@ -23,7 +23,7 @@ function Redirect($url)
 // Function for connect to Data
 function ConnectToDB()
 {
-	$servername = "mysql:3306";
+  $servername = "mysql:3306";
   $username   = "readonlyuser";
   $password   = "123#passwor#d321";
   $db         = "usersinfo";

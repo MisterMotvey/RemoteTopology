@@ -68,12 +68,12 @@
                 $username   = $_POST['username'];
                 $query   = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
                 $champ   = $query->fetch(); $champ = $champ[0];
+
                 // Set Device list in DEVICES_LIST:
                 // $DEVICES_LIST[0] => 'L-CLI-A'
                 // $DEVICES_LIST[1] => 'L-CLI-B'
                 $query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
                 $complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
-
                 if ($complex_champ == True) {
                     $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
                     $champ = $query->fetch(); $champ = $champ[0];
@@ -82,6 +82,12 @@
                     $query          = $conn->query($sql);
                     $DEVICES        = $query->fetch(PDO::FETCH_ASSOC);
                     $DEVICES_LIST   = preg_split("/,/", $DEVICES['Complex']);
+
+                    // Check available user on champ and create if no
+                    $query   = $conn->query("SELECT Username FROM $table WHERE `Username` = '$username'");
+                    $available = $query->fetch(); $available = $available[0];
+                    if (!$available) $query   = $conn->query("INSERT $table (Username) VALUES ('$username')");
+
                     foreach ($DEVICES_LIST as $device) {
                         $link   = $_POST[$device];
                         $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
@@ -98,7 +104,14 @@
                     // Create table name
                     $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
                     $champ = $query->fetch(); $champ = $champ[0];
-                    $table = 'championships.`' . $champ . $module . '`';                    
+                    $table = 'championships.`' . $champ . $module . '`';
+                    
+                    // Check available user on champ and create if no
+                    $query   = $conn->query("SELECT Username FROM $table WHERE `Username` = '$username'");
+                    $available = $query->fetch(); $available = $available[0];
+
+                    if (!$available) $query   = $conn->query("INSERT $table (Username) VALUES ('$username')");
+
                     foreach ($DEVICES_LIST as $device) {
                         $link   = $_POST[$device];
                         $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
@@ -136,6 +149,107 @@
                 $champ  = $_POST['champ'];
                 $timer  = $_POST['timer'];
                 $query = $conn->query("UPDATE championships.champ_list SET `Timer`='$timer' WHERE `Event`='$champ'");
+                break;
+            case 'AddUser':
+                // Add new User to champ
+                $number     = $_POST['number'] + 1;
+                $username   = $_POST['user'];
+                $password   = $_POST['pass'];
+                $md5pass    = md5($_POST['pass']);
+                $champ      = $_POST['champ'];
+                if( isset($_POST['adminpriv']) ) $adminpriv = 1;
+                else                             $adminpriv = 0;
+                $module     = $_POST['module'];
+
+                // Check username in DB
+                $query   = $conn->query("SELECT Username FROM usersinfo.`credentials` WHERE `Username` = '$username'");
+                $break = $query->fetch(); $break = $break[0];
+                if($break) break;
+
+                // Add into usersinfo
+                $query = $conn->query(
+                    "INSERT usersinfo.`credentials`(Number, Username, Password, adminpriv) 
+                    VALUES ($number, '$username', '$md5pass', $adminpriv);                    
+                    INSERT usersinfo.`currentstate`(Username, State, Module, Championship) 
+                    VALUES ('$username', 1, '$module', '$champ');                    
+                    -- ");
+                
+                // Write clean username and pass to file 
+                $fp = fopen('data/9bc65c2abec141778ffaa729489f3e87.txt', 'a') or die("Unable to open file!");
+                $string = "$username/$password\n";
+                fwrite($fp, $string);
+                fclose($fp);
+                
+                // Get `Complex` champ 
+                $query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
+                $complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
+
+                if ($complex_champ) {
+                    $query = $conn->query(
+                        "INSERT championships.`$champ` (Username) 
+                        VALUES ('$username');                    
+                        ");
+                }
+                else {
+                    $modules = ['A', 'B', 'C']; 
+                    foreach ( $modules  as $module) {
+                        $table = $champ . $module;
+                        // echo $table;
+                        $query = $conn->query(
+                            "INSERT championships.`$table` (Username) 
+                            VALUES ('$username');                    
+                            ");
+                    }
+                }
+                // For debug lol :))))
+                // $query   = $conn->query("SELECT Complex213 FROM championships.champ_list WHERE `Event` = '$champ'");$complex_champ = $query->fetch();
+                break;
+
+                case 'DropUser':
+                    // Change Timer for Champ
+                    $username   = $_POST['username'];
+                    // Drop from ALL Championships
+                    $query = $conn->query("SELECT `Event` FROM championships.champ_list");
+                    $champlist = $query->fetchAll(PDO::FETCH_COLUMN, 0);
+                    // print_r($champlist);
+                    foreach ($champlist as $number => $champ) {
+                        // Parse All championat
+                        // Get `Complex` champ 
+                        $query   = $conn->query("SELECT Complex FROM championships.champ_list WHERE `Event` = '$champ'");
+                        $complex_champ = $query->fetch(); $complex_champ = $complex_champ[0];
+                        if($complex_champ) {
+                            // Drop from champ table if complex
+                            $query = $conn->query("DELETE FROM championships.`$champ` WHERE Username='$username'");
+                        }
+                        else {
+                            // Or Drop from all module champ table if not complex
+                            $modules = ['A', 'B', 'C']; 
+                            foreach ( $modules  as $module) {
+                                $table = $champ . $module;
+                                $query = $conn->query("DELETE FROM championships.`$table` WHERE Username='$username'");
+                            }
+                        }
+                    }
+
+                    // Drop string from txt fiile
+                    $string=file_get_contents('data/9bc65c2abec141778ffaa729489f3e87.txt');
+                    $string=explode("\n",$string);
+                    foreach($string as $key=>$value)
+                    {
+                        $line=explode("/",$value);
+                        // $line[0] - username 
+                        // $line[1] - password
+                        if( $line[0] == $username ) {
+                            unset($string[$key]);
+                        }
+                    }
+                    $string=implode("\n",$string);
+                    file_put_contents('data/9bc65c2abec141778ffaa729489f3e87.txt', $string);
+                    // Drop from usersinfo
+                    $query      = $conn->query(
+                        "DELETE FROM usersinfo.`credentials` WHERE Username='$username';
+                        DELETE FROM usersinfo.`currentstate` WHERE Username='$username';
+                        ");
                 break;
             default: 
                 break; 

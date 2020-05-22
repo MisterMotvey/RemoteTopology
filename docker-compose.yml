@@ -42,8 +42,6 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: RTphpmyadmin
-    # links:
-    #   - mysql
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
