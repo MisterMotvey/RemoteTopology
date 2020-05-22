@@ -248,6 +248,9 @@
                     // Drop from usersinfo
                     $query      = $conn->query(
                         "DELETE FROM usersinfo.`credentials` WHERE Username='$username';
+                        SET @i := 0;
+                        UPDATE usersinfo.`credentials` SET  `Number` = (@i := @i + 1);
+                        ALTER TABLE usersinfo.`credentials` AUTO_INCREMENT = 1;
                         DELETE FROM usersinfo.`currentstate` WHERE Username='$username';
                         ");
                 break;
