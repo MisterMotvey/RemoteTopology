@@ -1,5 +1,5 @@
 <?php
-    require_once('session.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/site/session.php');
     // If you are nog logged -> Home
     if(!$_SESSION['status']) {
       $_SESSION['error'] = True;

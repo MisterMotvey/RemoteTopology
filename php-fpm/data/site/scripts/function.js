@@ -14,6 +14,12 @@ function callhost(link) {
 
 // JQuery function
 
+// setTimeout(function(){
+//     document.getElementById('admin-error').style.display='block';
+//  }, 5000);
+setTimeout(function(){ $('#admin-error').hide('fast'); }, 3000);
+setTimeout(function(){ $('#admin-event').hide('fast'); }, 3000);
+
 
 // sends data to a php file, via POST, and displays the received answer
 function ajaxrequest(php_file, tagID) {
@@ -59,6 +65,31 @@ function GetModuleTable(str, module) {
             }
         };
         xmlhttp.open("GET","/admin/getmodule.php?q="+str+"&m="+module,true);
+        xmlhttp.send();
+    }
+}
+// range    - all || users || user
+// action   - trystate 
+// (as sample) 
+function GetFunction(range, action) {      
+    if (action == "") {
+        document.getElementById("TRY").innerHTML = "";
+        return;
+    }
+    else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById(`${action}`).innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","/admin/getfunction.php?r="+range+"&a="+action,true);
         xmlhttp.send();
     }
 }

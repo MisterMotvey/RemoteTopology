@@ -13,4 +13,4 @@ db/
 php-fpm/data/site/dcnt/*
 
 # Admin data
-admin/data/
+admin/data/*

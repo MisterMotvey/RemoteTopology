@@ -55,8 +55,10 @@
     <link rel="icon" type="image/png" href="/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.accordion.css">
     <link rel="stylesheet" type="text/css" href="/css/admin.css">
     <script src="/scripts/jquery-3.5.0.min.js"></script>
+    <script src="/scripts/jquery.accordion.js"></script>
     <script src="/scripts/function.js"></script>
     <title>RemoteTopology</title>
     <style>
@@ -79,132 +81,67 @@
         </div>
     </div>
     <div class="admin-info">
-    
-        <!-- TODO: Feature Update ALL TryState -->
+        <!-- TryState -->
         <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                TryState UPDATE FOR ALL (except admins):
+            <form method="post" action="/admin/action.php" >
+                TRYSTATE OPTIONS:
+                <select name="range" class="admin-select" onchange="GetFunction(this.value, 'TRY')">
+                    <option disabled selected>select</option>
+                    <option value="ALL">ALL</option>
+                    <option value="RANGE">RANGE</option>
+                    <option value="USER">USER</option>
+                </select>
                 <br>
-                <input type="radio" id="activate" name="activate" value="True">
-                <label for="activate">Activate</label>
-                <input type="radio" id="deactivate" name="activate" value="False">
-                <label for="deactivate">Deactivate</label>
-                <input type="hidden" name="action" value="ChangeStateAll">
-                <input type="submit" value="Apply">
+                <div id="TRY"></div>
             </form>
         </div>
 
-        <!-- TODO: Feature Update TryState for username -->
+        <!-- Module -->
         <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                TryState UPDATE FOR USER:
+            <form method="post" action="/admin/action.php" >
+                MODULE OPTIONS:
+                <select name="range" class="admin-select" onchange="GetFunction(this.value, 'MODULE')">
+                    <option disabled selected>select</option>
+                    <option value="ALL">ALL</option>
+                    <option value="RANGE">RANGE</option>
+                    <option value="USER">USER</option>
+                </select>
                 <br>
-                <input type="radio" id="activateUser" name="activateUser" value="True">
-                <label for="activateUser">Activate</label>
-                <input type="radio" id="deactivateUser" name="activateUser" value="False">
-                <label for="deactivateUser">Deactivate</label>
-                
-                <?php echo $SELECT_USERS; ?>
-                <input type="hidden" name="action" value="ChangeStateUser">
-                <input type="submit" value="Apply">    
-            </form>
-        </div>
-
-        <!-- TODO: Feature Update TryState for user range -->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-            TryState UPDATE FOR Users range:
-                <br>
-                <input type="radio" id="activateUsers" name="activateUser" value="True">
-                <label for="activateUsers">Activate</label>
-                <input type="radio" id="deactivateUsers" name="activateUser" value="False">
-                <label for="deactivateUsers">Deactivate</label>
-                
-                <select name="username1" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <select name="username2" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <input type="hidden" name="action" value="ChangeStateUsers">
-                <input type="submit" value="Apply">
-            </form>
-        </div>
-
-        <!-- TODO: Feature Update ALL Module -->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Module UPDATE FOR ALL:
-                <br>
-                <?php echo $SELECT_MODULES; ?>
-                <input type="hidden" name="action" value="ChangeModuleAll">
-                <input type="submit" value="Apply">
-            </form>
-        </div>
-
-        <!-- TODO: Feature Update Module for username -->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Module UPDATE FOR User:
-                <br>
-                <?php echo $SELECT_USERS; ?>
-                <?php echo $SELECT_MODULES; ?>
-                <input type="hidden" name="action" value="ChangeModuleUser">
-                <input type="submit" value="Apply">
+                <div id="MODULE"></div>
             </form>
         </div>
         
-        <!-- TODO: Feature Update Module for user range-->
+        <!-- CHAMP -->
         <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Module UPDATE FOR Users range:
+            <form method="post" action="/admin/action.php" >
+                CHAMPIONSHIPS OPTIONS:
+                <select name="range" class="admin-select" onchange="GetFunction(this.value, 'CHAMP')">
+                    <option disabled selected>select</option>
+                    <option value="ALL">ALL</option>
+                    <option value="RANGE">RANGE</option>
+                    <option value="USER">USER</option>
+                </select>
                 <br>
-                <select name="username1" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <select name="username2" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <?php echo $SELECT_MODULES; ?>
-                <input type="hidden" name="action" value="ChangeModuleUsers">
-                <input type="submit" value="Apply">
-            </form>
-        </div>
-        
-        <!-- TODO: Feature Update Championship for ALL -->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Champ UPDATE FOR ALL:
-                <br>
-                <?php echo $SELECT_CHAMP; ?>
-                <input type="hidden" name="action" value="ChangeChampAll">
-                <input type="submit" value="Apply">    
+                <div id="CHAMP"></div>
             </form>
         </div>
 
-        <!-- TODO: Feature Update Championship for user -->
+        <!-- Drop Users -->
+        
         <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Champ UPDATE FOR User:
+            <form method="post" action="/admin/action.php" >
+                DROP USER(s) OPTIONS:
+                <select name="range" class="admin-select" onchange="GetFunction(this.value, 'DROP')">
+                    <option disabled selected>select</option>
+                    <option value="RANGE">RANGE</option>
+                    <option value="USER">USER</option>
+                </select>
                 <br>
-                <?php echo $SELECT_USERS; ?>
-                <?php echo $SELECT_CHAMP; ?>
-                <input type="hidden" name="action" value="ChangeChampUser">
-                <input type="submit" value="Apply">    
+                <div id="DROP"></div>
             </form>
         </div>
         
-        <!-- TODO: Feature Update Championship for user range -->
-        <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Champ UPDATE FOR Users range:
-                <br>
-                <select name="username1" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <select name="username2" class="admin-select">
-                <?php echo $SELECT_USERS_GET; ?>
-                <?php echo $SELECT_CHAMP; ?>
-                <input type="hidden" name="action" value="ChangeChampUsers">
-                <input type="submit" value="Apply">    
-            </form>
-        </div>
-        
+
         <!-- TODO: Feature Update password for username -->
         <div class="admin-feature">
             <form method="post" action="/admin/action.php">
@@ -242,47 +179,24 @@
                 AdminPrivilege
                 <input type="checkbox" name="adminpriv" value="1">
                 <?php echo $SELECT_MODULES; ?>
-                <input type="hidden" name="number" value=<?php echo $MAX;?>>
+                <input type="hidden" name="number" value=<?php echo $MAX + 1;?>>
                 <input type="hidden" name="action" value="AddUser">
                 <input type="submit" value="Apply">    
             </form>
         </div>
         
-        <!-- TODO: Feature Drop USERNAME -->
+        <!-- TODO: Feature Rename USERNAME -->
         <div class="admin-feature">
             <form method="post" action="/admin/action.php">
-                Drop USER
+                Rename USER
                 <br>
                 <?php echo $SELECT_USERS; ?>
-                <input type="hidden" name="action" value="DropUser">
+                <input type="text" name="newname">
+                <input type="hidden" name="action" value="RenameUser">
                 <input type="submit" value="Apply">    
             </form>
         </div>
-
-        <!-- TODO: Feature Add users with random password -->
-        <!-- <div class="admin-feature">
-            <form method="post" action="/admin/action.php">
-                Add number of USERS with RANDOM PASSWORDS (up to 10)
-                <br>
-                Number of Users:
-                <select name="number" class="admin-select">
-                    <option value="1" class="admin-select">1</option>
-                    <option value="2" class="admin-select">2</option>
-                    <option value="3" class="admin-select">3</option>
-                    <option value="4" class="admin-select">4</option>
-                    <option value="5" class="admin-select">5</option>
-                    <option value="6" class="admin-select">6</option>
-                    <option value="7" class="admin-select">7</option>
-                    <option value="8" class="admin-select">8</option>
-                    <option value="9" class="admin-select">9</option>
-                    <option value="10" class="admin-select">10</option>
-                </select>
-                <?php //echo $SELECT_CHAMP; ?>
-                <input type="hidden" name="action" value="AddUsersRandomPass">
-                <input type="submit" value="Apply">    
-            </form>
-        </div> -->
-
+        
         <table class="admin-table-main">
             <tr>
                 <th>ID</th>
@@ -321,8 +235,14 @@
             </tr>
         <?php } ?>
         </table>
+        <!-- username link -->
         <a href="/admin/data/9bc65c2abec141778ffaa729489f3e87.txt" download>
             <h3>Download Username and Password in clear text</h3>
+        </a>
+        <hr>
+        <!-- edit champ link -->
+        <a href="/admin/features/champ_edit.php">
+            <h3>Champ editor</h3>
         </a>
         <hr>
         <!-- TODO: Feature Get A Module Info for username -->
@@ -382,7 +302,21 @@
                 ?>
             </tbody>
         </table>
-
+        <?php
+            if ($_SESSION["error"] == True) {
+                echo '<div class="admin-error" id="admin-error">';
+                echo $_SESSION["error_description"]; 
+                unset($_SESSION["error_description"]);
+                unset($_SESSION["error"]);
+                echo '</div>';
+            } elseif ($_SESSION["event"] == True) {
+                echo '<div class="admin-event" id="admin-event">';
+                echo  $_SESSION["event_description"];
+                unset($_SESSION["event_description"]); 
+                unset($_SESSION["event"]); 
+                echo '</div>';
+            }      
+        ?>
     </div>
     <footer>
       <p>
