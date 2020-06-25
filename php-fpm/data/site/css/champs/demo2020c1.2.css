@@ -19,49 +19,41 @@
   TODO: CSS Linux
 */
 
-.L-SRV {
-  margin-top: 280px;
-  margin-left: 20px;
+.WinSRV1 {
+  margin-top: 120px;
+  margin-left: 40px;
 }
-.L-FW {
-  margin-top: 280px;
-  margin-left: 300px;
+.WinSRV2 {
+  margin-top: 120px;
+  margin-left: 190px;
 }
-.L-RTR-A {
-  margin-top: 500px;
-  margin-left: 135px;
+.WinSRV3 {
+  margin-top: 120px;
+  margin-left: 340px;
 }
-.L-RTR-B {
-  margin-top: 500px;
-  margin-left: 405px;
+.LinSRV1 {
+  margin-top: 440px;
+  margin-left: 450px;
 }
-.L-CLI-A {
-  margin-top: 720px;
-  margin-left: 130px;
+.LinSRV2 {
+  margin-top: 650px;
+  margin-left: 180px;
 }
-.L-CLI-B {
-  margin-top: 720px;
-  margin-left: 405px;
+.ISPl {
+  margin-top: 440px;
+  margin-left: 780px;
 }
-.OUT-CLI {
-  margin-top: 90px;
-  margin-left: 790px;
+.MagicMirror {
+  margin-top: 140px;
+  margin-left: 780px;
 }
-.R-FW {
-  margin-top: 280px;
-  margin-left: 1010px;
+.Remote-W {
+  margin-top: 200px;
+  margin-left: 1100px;
 }
-.R-SRV {
-  margin-top: 280px;
-  margin-left: 1270px;
-}
-.R-RTR {
-  margin-top: 480px;
-  margin-left: 1015px;
-}
-.R-CLI {
-  margin-top: 690px;
-  margin-left: 1015px;
+.Remote-L {
+  margin-top: 650px;
+  margin-left: 1100px;
 }
 
 /* 
