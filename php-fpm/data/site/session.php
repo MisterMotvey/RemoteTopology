@@ -1,13 +1,17 @@
 <?php
 
-// $_SESSION['username']  - save username
-// $_SESSION['password']  - save password
-// $_SESSION['status']    - check login status, true or false
-// $_SESSION['error']     - if login try has failed set this to true
-// $_SESSION['adminpriv'] - admin privileges
-// $_SESSION['champ']     - current championship for username
-// $_SESSION['timer']     - current timer for champ
-// $_SESSION['complex']   - True or False complex championship
+// $_SESSION['username']          - save username
+// $_SESSION['password']          - save password
+// $_SESSION['status']            - check login status, true or false
+// $_SESSION['adminpriv']         - admin privileges
+// $_SESSION['champ']             - current championship for username
+// $_SESSION['timer']             - current timer for champ
+// $_SESSION['complex']           - True or False complex championship
+// $_SESSION['error']             - Create error message
+// $_SESSION["error_description"] - Description for errors
+// $_SESSION["event"]             - Create event message
+// $_SESSION["event_description"] - Description for events
+
 
 @ob_start();
 session_start();
