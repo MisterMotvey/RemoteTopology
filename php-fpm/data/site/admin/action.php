@@ -125,15 +125,20 @@
                     $available = $query->fetch(); $available = $available[0];
 
                     if (!$available) $query   = $conn->query("INSERT $table (Username) VALUES ('$username')");
-
+                    
                     foreach ($DEVICES_LIST as $device) {
                         $link   = $_POST[$device];
-                        $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                        try {
+                            $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                        }  catch (Exception $e) {
+                            echo 'Exception: ',  $e->getMessage(), "\n";
+                        } finally {
+                            echo "NEXT\n";
+                        }
                     }
-                    
                 }  
                 $_SESSION["event"] = True;
-                $_SESSION["event_description"] = "USERNAME '$username1' - '$username2' ---> NEW LINKS";
+                $_SESSION["event_description"] = "USERNAME '$username' ---> NEW LINKS";
                 break;
             case 'ChangeChampAll':
                 // Change Championship for ALL
