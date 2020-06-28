@@ -86,6 +86,10 @@
    <div class="main-content">
     <div class="main-scheme">
       <img src=" <?php echo $dir_images . '/' . $module . 'scheme.png'; ?>" alt="Scheme" class="main-scheme-image">
+      <!-- Additionals -->
+      <div class="additionals ESXi-L"
+      onclick="callhost('<?php echo $links['ESXi']; ?>');">
+      </div>
       <!-- Hosts -->
       <div class="host WinSRV1"
       onclick="callhost('<?php echo $links['WinSRV1']; ?>');">
@@ -103,7 +107,7 @@
       onclick="callhost('<?php echo $links['LinSRV1']; ?>');">
       </div>
       <div class="host ISPl"
-      onclick="callhost('<?php echo $links['ISP']; ?>');">
+      onclick="callhost('<?php echo $links['ISPl']; ?>');">
       </div>
       <div class="host MagicMirror"
       onclick="callhost('<?php echo $links['MagicMirror']; ?>');">

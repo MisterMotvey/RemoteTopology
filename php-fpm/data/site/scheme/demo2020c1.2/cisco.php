@@ -88,6 +88,10 @@
    <div class="main-content">
     <div class="main-scheme">
       <img src=" <?php echo $dir_images . '/' . $module . 'scheme.png'; ?>" alt="Scheme" class="main-scheme-image">
+      <!-- Additionals -->
+      <div class="additionals ILO"
+      onclick="callhost('<?php echo $links['ILO']; ?>');">
+      </div>
       <!-- Devices -->
       <div class="device BR-OVS"
       onclick="call('<?php echo $links['BR-OVS']; ?>');">

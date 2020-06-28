@@ -86,6 +86,10 @@
    <div class="main-content">
     <div class="main-scheme">
       <img src=" <?php echo $dir_images . '/' . $module . 'scheme.png'; ?>" alt="Scheme" class="main-scheme-image">
+      <!-- Additionals -->
+      <div class="additionals ESXi-W"
+      onclick="callhost('<?php echo $links['ESXi']; ?>');">
+      </div>
       <!-- Devices -->
       <div class="device ISP"
       onclick="call('<?php echo $links['ISP']; ?>');">
