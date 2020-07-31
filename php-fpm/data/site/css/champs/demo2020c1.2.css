@@ -1,0 +1,211 @@
+
+/* TODO: Devices CSS*/
+.additionals {
+  position: absolute;
+  width: 328px;
+  height: 90px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+.device {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+.host {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+/* 
+  TODO: CSS Linux
+*/
+
+.ESXi-L {
+  margin-top: 28px;
+  margin-left: 1055px;
+}
+.WinSRV1 {
+  margin-top: 120px;
+  margin-left: 40px;
+}
+.WinSRV2 {
+  margin-top: 120px;
+  margin-left: 190px;
+}
+.WinSRV3 {
+  margin-top: 120px;
+  margin-left: 340px;
+}
+.LinSRV1 {
+  margin-top: 440px;
+  margin-left: 450px;
+}
+.LinSRV2 {
+  margin-top: 650px;
+  margin-left: 180px;
+}
+.ISPl {
+  margin-top: 440px;
+  margin-left: 780px;
+}
+.MagicMirror {
+  margin-top: 140px;
+  margin-left: 780px;
+}
+.Remote-W {
+  margin-top: 200px;
+  margin-left: 1100px;
+}
+.Remote-L {
+  margin-top: 650px;
+  margin-left: 1100px;
+}
+
+/* 
+  TODO: CSS Windows
+*/
+
+.ESXi-W {
+  margin-top: 28px;
+  margin-left: 1045px;
+}
+.ISP {
+  margin-top: 370px;
+  margin-left: 840px;
+}
+.BR-RTRw {
+  margin-top: 50px;
+  margin-left: 840px;
+}
+.HQ-FW {
+  margin-top: 720px;
+  margin-left: 840px;
+}
+.AD {
+  margin-top: 700px;
+  margin-left: 690px;
+}
+.FILES {
+  margin-top: 700px;
+  margin-left: 540px;
+}
+.ADCS {
+  margin-top: 700px;
+  margin-left: 420px;
+}
+.DMZ {
+  margin-top: 700px;
+  margin-left: 280px;
+}
+.HQ-CLIw {
+  margin-top: 700px;
+  margin-left: 120px;
+}
+.REMOTE {
+  margin-top: 20px;
+  margin-left: 320px;
+}
+.ISPS {
+  margin-top: 170px;
+  margin-left: 320px;
+}
+.BR-CLIw {
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.AD_B {
+  margin-top: 250px;
+  margin-left: 20px;
+}
+.BR-CLIw {
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.WEB_B {
+  margin-top: 400px;
+  margin-left: 20px;
+}
+
+/* 
+  TODO: CSS Cisco
+*/
+
+.ILO {
+  margin-top: 770px;
+  margin-left: 34px;
+}
+.BR-CLI {
+  margin-top: 220px;
+  margin-left: 130px;
+}
+.BR-LinSRV {
+  margin-top: 360px;
+  margin-left: 130px;
+}
+.BR-OVS {
+  margin-top: 300px;
+  margin-left: 230px;
+}
+.BR-SW {
+  margin-top: 300px;
+  margin-left: 400px;
+}
+.BR-RTR {
+  margin-top: 370px;
+  margin-left: 510px;
+}
+.ISP1 {
+  margin-top: 210px;
+  margin-left: 830px;
+}
+.ISP2 {
+  margin-top: 410px;
+  margin-left: 830px;
+}
+.RMACC-LinCLI {
+  margin-top: 110px;
+  margin-left: 650px;
+}
+.RMACC-OVS {
+  margin-top: 110px;
+  margin-left: 770px;
+} 
+.HQ-RTR {
+  margin-top: 185px;
+  margin-left: 1020px;
+}
+.HQ-SW1 {
+  margin-top: 290px;
+  margin-left: 1200px;
+}
+.HQ-SW2 {
+  margin-top: 290px;
+  margin-left: 1020px;
+}
+.HQ-LinSRV1 {
+  margin-top: 490px;
+  margin-left: 1260px;
+}
+.HQ-LinSRV2 {
+  margin-top: 630px;
+  margin-left: 1260px;
+}
+.HQ-LinSRV3 {
+  margin-top: 760px;
+  margin-left: 1260px;
+}
+.HQ-LinRTR {
+  margin-top: 740px;
+  margin-left: 1000px;
+}
+.HQ-CLI {
+  margin-top: 520px;
+  margin-left: 960px;
+}

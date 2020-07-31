@@ -1,0 +1,94 @@
+
+/* TODO: Devices CSS*/
+.additionals {
+  position: absolute;
+  width: 328px;
+  height: 90px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+.device {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+.host {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+/* 
+  TODO: CSS TSHOOT demo2020c1.2
+*/
+
+.Remote {
+  margin-top: 80px;
+  margin-left: 640px;
+}
+.HQDC {
+  margin-top: 200px;
+  margin-left: 95px;
+}
+.LinSRV1 {
+  margin-top: 200px;
+  margin-left: 240px;
+}
+.HQFS {
+  margin-top: 200px;
+  margin-left: 380px;
+}
+.Worker1 {
+  margin-top: 720px;
+  margin-left: 85px;
+}
+.Admin {
+  margin-top: 720px;
+  margin-left: 240px;
+}
+.Worker2 {
+  margin-top: 720px;
+  margin-left: 400px;
+}
+.HQSW {
+  margin-top: 500px;
+  margin-left: 300px;
+}
+.HQ {
+  margin-top: 500px;
+  margin-left: 470px;
+}
+
+.BRFW {
+  margin-top: 500px;
+  margin-left: 1020px;
+}
+.BR {
+  margin-top: 500px;
+  margin-left: 820px;
+}
+.BRFS {
+  margin-top: 190px;
+  margin-left: 860px;
+}
+.BRDC {
+  margin-top: 190px;
+  margin-left: 1000px;
+}
+.LinSRV2 {
+  margin-top: 190px;
+  margin-left: 1190px;
+}
+.LinCLI {
+  margin-top: 740px;
+  margin-left: 1190px;
+}
+.WinCLI {
+  margin-top: 740px;
+  margin-left: 1000px;
+}
