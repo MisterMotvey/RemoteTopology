@@ -104,7 +104,13 @@
 
                     foreach ($DEVICES_LIST as $device) {
                         $link   = $_POST[$device];
-                        $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                        try {
+                            $query  = $conn->query("UPDATE $table SET `$device`='$link' WHERE `Username`='$username'");
+                        }  catch (Exception $e) {
+                            echo 'Exception: ',  $e->getMessage(), "\n";
+                        } finally {
+                            echo "NEXT\n";
+                        }
                     }
                 }
                 else {
@@ -115,6 +121,7 @@
                     $query      = $conn->query($sql);
                     $DEVICES    = $query->fetch(PDO::FETCH_ASSOC);
                     $DEVICES_LIST = preg_split("/,/", $DEVICES[$module]);
+                    
                     // Create table name
                     $query = $conn->query("SELECT Championship FROM usersinfo.currentstate WHERE `Username` = '$username'");
                     $champ = $query->fetch(); $champ = $champ[0];
