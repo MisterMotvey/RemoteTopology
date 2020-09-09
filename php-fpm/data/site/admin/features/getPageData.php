@@ -9,14 +9,15 @@
     $conn           = ConnectToDB();
     $users_table    = "`credentials`"; 
     
-    // Quantity of results per page
-    $limit = 10;
     // Check if page has been clicked
-    if (!isset($_GET['pageNumber'])) {
-        $page = 1;
+    if (!isset($_GET['pageNumber']) or !isset($_GET['perPageCount'])) {
+        $page  = 1;
+        $limit = 20;
     } else{
-        $page = $_GET['pageNumber'];
+        $page  = $_GET['pageNumber'];
+        $limit = $_GET['perPageCount'];
     }
+
     $starting_limit = ($page-1)*$limit;
     $select_count = "SELECT MAX(Number) FROM $users_table";
     $select_data = "SELECT `Number`,`Username`,`adminpriv`
@@ -58,12 +59,7 @@
     // Paginating part itself
     for ($page=1; $page <= $total_pages ; $page++):?>
 
-    <a href='<?php
-        if (isset($searchTerm)) {
-            echo "list.php?search=$searchTerm&page=$page";
-        } else {
-            echo "list.php?page=$page";
-        } ?>'><?php  echo $page; ?>
-    </a>
+    <!-- <a href='<?php echo "features/getPageData.php?pageNumber=$page";?>'><?php  echo $page; ?>
+    </a> -->
 
 <?php endfor; ?>

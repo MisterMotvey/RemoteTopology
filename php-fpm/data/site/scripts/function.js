@@ -98,7 +98,7 @@ function showRecords(perPageCount, pageNumber) {
     $.ajax({
         type: "GET",
         url: "/admin/features/getPageData.php",
-        data: "pageNumber=" + pageNumber,
+        data: `pageNumber=${pageNumber}&perPageCount=${perPageCount}`,
         cache: false,
         beforeSend: function() {
             $('#loader').html('<img src="/images/loader.png" alt="reload" width="100" height="100" style="margin-top:10px;">'); 
